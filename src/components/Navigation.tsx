@@ -2,7 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
 import IcyLogo from "../assets/icycoder-logo.svg";
-import { useState } from "react";
+import SiteLogo from "../components/SiteLogo";
+import React, { useState } from "react";
 
 export default function Navigation() {
   const router = useRouter();
@@ -10,11 +11,9 @@ export default function Navigation() {
   return (
     <>
       <Burger active={active} onClick={() => setActive(!active)} />
+      <SiteLogo />
       <div className={"container " + (active ? "active" : "")}>
         <ul>
-          <li>
-            <IcyLogo height={50} width={50}></IcyLogo>
-          </li>
           <li>
             <Link href="/">
               <a className={router.pathname === "/" ? "active" : null}>home</a>
@@ -27,7 +26,7 @@ export default function Navigation() {
                   router.pathname.startsWith("/posts") ? "active" : null
                 }
               >
-                blog
+                articles
               </a>
             </Link>
           </li>
