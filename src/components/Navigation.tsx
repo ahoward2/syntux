@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
+import IcyLogo from "../assets/icycoder-logo.svg";
 import { useState } from "react";
 
 export default function Navigation() {
@@ -11,6 +12,9 @@ export default function Navigation() {
       <Burger active={active} onClick={() => setActive(!active)} />
       <div className={"container " + (active ? "active" : "")}>
         <ul>
+          <li>
+            <IcyLogo height={50} width={50}></IcyLogo>
+          </li>
           <li>
             <Link href="/">
               <a className={router.pathname === "/" ? "active" : null}>home</a>

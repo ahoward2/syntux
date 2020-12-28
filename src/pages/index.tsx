@@ -2,6 +2,9 @@ import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
+import IcyLogo from "../assets/icycoder-logo.svg";
+import ArtisticEditor from "../components/ArtisticEditor";
+
 
 export default function Index() {
   return (
@@ -11,11 +14,17 @@ export default function Index() {
       <TwitterCardMeta url={"/"} />
       <div className="container">
         <div>
+          <div className="graphic-wrapper">
+            <div className="logo">
+              <IcyLogo width={100} height={100}></IcyLogo>
+            </div>
+            <div className="gap"></div>
+            <ArtisticEditor></ArtisticEditor>
+          </div>
           <h1>
-            Welcome To IcyCoder ❄️<span className="fancy">.</span>
+            Welcome To IcyCoder<span className="fancy">.</span>
           </h1>
           <span className="handle">Code Tutorials | Machines | Tech Stories</span>
-          <h2>We're Currently Looking For Authors.</h2>
         </div>
       </div>
       <style jsx>{`
@@ -25,6 +34,25 @@ export default function Index() {
           justify-content: center;
           flex: 1 1 auto;
           padding: 0 1.5rem;
+        }
+        .graphic-wrapper {
+          display: flex;
+          justify-content: space-between;
+        }
+        .gap {
+          width: 0.5em;
+        }
+        @keyframes rotation {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(359deg);
+          }
+        }
+        .logo {
+          margin: auto;
+          animation: rotation 8s infinite linear;
         }
         h1 {
           font-size: 2.5rem;
