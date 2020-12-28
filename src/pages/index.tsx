@@ -24,7 +24,7 @@ export default function Index() {
           <h1>
             Welcome To IcyCoder<span className="fancy">.</span>
           </h1>
-          <span className="handle">Code Tutorials | Machines | Tech Stories</span>
+          <span className="handle">Guides | Articles</span>
         </div>
       </div>
       <style jsx>{`
