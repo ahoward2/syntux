@@ -48,16 +48,16 @@ const ArtisticEditor = () => {
         }
         .vertical-bar {
             border-radius: 25px;
-            background-color: #0B9ED9;
+            background-color: #024873;
             opacity: 75%; 
-            height: 11em;
-            width: 1em;
+            height: 8em;
+            width: 0.75em;
             margin-right: 0.5em;
         }
         .horizontal-bar {
             border-radius: 25px;
             opacity: 75%; 
-            height: 1em;
+            height: 0.75em;
         }
         .row-wrapper{
             display: flex;
@@ -76,7 +76,7 @@ const ArtisticEditor = () => {
         }
         .block-column-4 {
             margin-right: 0.5em;
-            width: 10%%;
+            width: 10%;
         }
         .block-column-5 {
             margin-right: 0.5em;
@@ -112,7 +112,7 @@ const ArtisticEditor = () => {
         }
         .block-column-13 {
             margin-right: 0.5em;
-            width: 20em;
+            width: 10em;
         }
         .blue-block {
             background-color: #0B9ED9;
