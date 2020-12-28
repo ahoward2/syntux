@@ -14,19 +14,19 @@ const ArtisticEditor = () => {
                 <div className="row-wrapper">
                     <div className="horizontal-bar second-row block-column-3 lightgreen-block"></div>
                     <div className="horizontal-bar second-row block-column-4 green-block"></div>
-                    <div className="horizontal-bar second-row block-column-11 lightblue-block"></div>
+                    <div className="horizontal-bar second-row block-column-5 lightblue-block"></div>
                 </div>
                 <div className="row-wrapper">
-                    <div className="horizontal-bar third-row block-column-5 darkblue-block"></div>
-                    <div className="horizontal-bar third-row block-column-6 blue-block"></div>
+                    <div className="horizontal-bar third-row block-column-6 darkblue-block"></div>
+                    <div className="horizontal-bar third-row block-column-7 blue-block"></div>
                 </div>
                 <div className="row-wrapper">
-                    <div className="horizontal-bar fourth-row block-column-7 blue-block"></div>
-                    <div className="horizontal-bar fourth-row block-column-8 green-block"></div>
+                    <div className="horizontal-bar fourth-row block-column-8 blue-block"></div>
+                    <div className="horizontal-bar fourth-row block-column-9 green-block"></div>
                 </div>
                 <div className="row-wrapper">
-                    <div className="horizontal-bar fifth-row block-column-9 green-block"></div>
-                    <div className="horizontal-bar fifth-row block-column-10 lightblue-block"></div>
+                    <div className="horizontal-bar fifth-row block-column-10 green-block"></div>
+                    <div className="horizontal-bar fifth-row block-column-11 lightblue-block"></div>
                     <div className="horizontal-bar fifth-row block-column-12 lightgreen-block"></div>
                     <div className="horizontal-bar fifth-row block-column-13 darkblue-block"></div>
                 </div>
