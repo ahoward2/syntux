@@ -1,3 +1,9 @@
 tags:
   - slug: article
     name: article
+  - slug: css
+    name: css
+  - slug: html
+    name: html
+  - slug: javascript
+    name: javascript
