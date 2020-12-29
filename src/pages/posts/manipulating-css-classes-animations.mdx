@@ -1,0 +1,183 @@
+---
+slug: manipulating-css-classes-animations
+title: Manipulating CSS Classes To Trigger Animations
+date: 2020-12-29
+author: ice
+tags:
+  - article
+  - html
+  - css
+  - javascript
+---
+# ☕️ Summary
+
+You can easily use HTML, CSS, and JavaScript to add animations to your web applications that your users can interact with.
+
+A really easy way to do this is to attach and detach classes from elements by using the DOM classList property and a couple of methods:
+
+```jsx
+document.classList[indexOfElement].add("class");
+document.classList[indexOfElement].remove("class");
+```
+
+# 🖥 Demo
+
+---
+
+For this demo, we're going to place our SVG (scalable vector graphic) and a basic HTML button inside of `<div>` elements.
+
+## ⚙️ HTML Code
+
+---
+
+As you can see, our Icy Coder .svg logo is quite the hefty element. 😅
+
+In our HTML, we add two classes `class="logo rotate-right"` to the `<div>` element that wraps around our .svg logo so that we can reference them with JavaScript.
+
+```html
+<div class="logo rotate-right">
+  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 367.19 344.96"><defs><style>.cls-1{fill:url(#radial-gradient);}.cls-2{fill:url(#radial-gradient-2);}.cls-3{fill:url(#radial-gradient-3);}.cls-4{fill:url(#radial-gradient-4);}.cls-5{fill:url(#radial-gradient-5);}.cls-6{fill:url(#radial-gradient-6);}.cls-7{fill:url(#radial-gradient-7);}.cls-8{fill:url(#radial-gradient-8);}.cls-9{fill:url(#radial-gradient-9);}.cls-10{fill:url(#radial-gradient-10);}.cls-11{fill:url(#radial-gradient-11);}.cls-12{fill:url(#radial-gradient-12);}.cls-13{fill:url(#radial-gradient-13);}</style><radialGradient id="radial-gradient" cx="183.59" cy="172.48" r="50" gradientUnits="userSpaceOnUse"><stop offset="0.35" stop-color="#f1f2f2"/><stop offset="1" stop-color="#0e9ed9"/></radialGradient><radialGradient id="radial-gradient-2" cx="183.59" cy="50" r="50" xlink:href="#radial-gradient"/><radialGradient id="radial-gradient-3" cx="317.19" cy="172.48" r="50" gradientUnits="userSpaceOnUse"><stop offset="0.29" stop-color="#f1f2f2"/><stop offset="0.36" stop-color="#e9eff1"/><stop offset="0.46" stop-color="#d3e7ef"/><stop offset="0.58" stop-color="#b0daeb"/><stop offset="0.73" stop-color="#7fc8e5"/><stop offset="0.88" stop-color="#41b1df"/><stop offset="1" stop-color="#0e9ed9"/></radialGradient><radialGradient id="radial-gradient-4" cx="183.59" cy="294.96" r="50" xlink:href="#radial-gradient"/><radialGradient id="radial-gradient-5" cx="66.41" cy="543.7" r="50" gradientTransform="translate(66.8 -18.26) scale(0.5 0.5)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f1f2f2"/><stop offset="1" stop-color="#0e9ed9"/></radialGradient><radialGradient id="radial-gradient-6" cx="50" cy="173.75" r="50" xlink:href="#radial-gradient"/><radialGradient id="radial-gradient-7" cx="393.82" cy="543.7" r="50" xlink:href="#radial-gradient-5"/><radialGradient id="radial-gradient-8" cx="77.44" cy="209.96" r="50" xlink:href="#radial-gradient-5"/><radialGradient id="radial-gradient-9" cx="400.78" cy="219.25" r="50" gradientTransform="translate(66.8 -18.26) scale(0.5 0.5)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f1f2f2"/><stop offset="0.9" stop-color="#0e9ed9"/></radialGradient><radialGradient id="radial-gradient-10" cx="219.99" cy="278.74" r="50" gradientTransform="translate(-366.38 -524.37) scale(2.5 2.5)" xlink:href="#radial-gradient"/><radialGradient id="radial-gradient-11" cx="92.67" cy="277.02" r="50" gradientTransform="translate(66.8 -18.26) scale(0.5 0.5)" xlink:href="#radial-gradient"/><radialGradient id="radial-gradient-12" cx="400.78" cy="366.23" r="50" gradientTransform="translate(66.8 -18.26) scale(0.5 0.5)" xlink:href="#radial-gradient"/><radialGradient id="radial-gradient-13" cx="213.88" cy="526.43" r="50" gradientTransform="translate(66.8 -18.26) scale(0.5 0.5)" xlink:href="#radial-gradient"/></defs><circle class="cls-1" cx="183.59" cy="172.48" r="50"/><circle class="cls-2" cx="183.59" cy="50" r="50"/><circle class="cls-3" cx="317.19" cy="172.48" r="50"/><circle class="cls-4" cx="183.59" cy="294.96" r="50"/><circle class="cls-5" cx="100" cy="253.59" r="25"/><circle class="cls-6" cx="50" cy="173.75" r="50"/><circle class="cls-7" cx="263.7" cy="253.59" r="25"/><circle class="cls-8" cx="105.52" cy="86.72" r="25"/><circle class="cls-9" cx="267.19" cy="91.37" r="25"/><circle class="cls-10" cx="183.59" cy="172.48" r="125"/><circle class="cls-11" cx="113.13" cy="120.25" r="25"/><circle class="cls-12" cx="267.19" cy="164.86" r="25"/><circle class="cls-13" cx="173.74" cy="244.96" r="25"/></svg>
+</div>
+```
+
+Likewise, we add a class `class="button"` to the `<div>` element that wraps around our button.
+
+We also need to define a function to execute when our button is clicked so we add `onclick="onClock()"`. We'll define the `onClick` function in JavaScript later.
+
+```html
+<div class="button">
+  <button onclick="onClick()">Reverse</button>
+</div>
+```
+
+## ⚙️ CSS Code
+
+---
+
+Here's where the fun stuff happens - the animation!
+
+We're going to use the  `@keyframes` CSS rule to define a sequence of steps for our animation. Keyframes is a concept that is used for all kinds of animations event in popular adobe software tools like Photoshop, Illustrator, Animate, Premiere Pro, etc.
+
+So let's define two keyframe sequences so that we can toggle back and forth between them:
+
+- `rotate-right`
+- `rotate-left`
+
+Also, we'll make use of the `transform` CSS property to let us rotate the element - by degrees.
+
+```css
+@keyframes rotate-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotate-left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+}
+```
+
+Now, we add some positional styling to our `logo` and `button` classes and two classes that each hold our left and right rotation animations.
+
+```css
+.logo {
+  max-width: 250px;
+  margin: auto;
+}
+
+.rotate-right {
+  animation: rotate-right 8s infinite linear;
+}
+
+.rotate-left {
+  animation: rotate-left 8s infinite linear;
+}
+
+.button {
+  width: 50px;
+  margin: auto;
+  padding-top: 5em;
+}
+```
+
+For each of our animations, we use the CSS `animation` property which we can define all of the attributes of our animations.
+
+For this case, it works like this:
+
+```css
+animation: [animation-name] [animation-duration] [animation-iteration-count] [animation-timing-function]
+```
+
+And that's all we need for our CSS!
+
+## ⚙️ JavaScript Code
+
+---
+
+Now our animation should be working, but our button doesn't do anything yet! This is where we can use JavaScript to handle event logic.
+
+Here's the full JavaScript code, but we'll also go over what's happening →
+
+```jsx
+const onClick = () => {
+  let logoElement = document.getElementsByClassName("logo")[0];
+  let rotationClass = logoElement.classList[1];
+  
+  if (rotationClass === "rotate-right"){
+    logoElement.classList.remove("rotate-right");
+    logoElement.classList.add("rotate-left");
+  }
+  
+  else{
+    logoElement.classList.remove("rotate-left");
+    logoElement.classList.add("rotate-right");
+  }
+}
+```
+
+We first define two *mutable* variables:
+
+```jsx
+// reference to <div class="logo .."> element that wraps our logo
+let logoElement = document.getElementsByClassName("logo")[0];
+
+// reference to second class in <div class="logo [second-class]">
+// this is the class index that we'll refer to for toggling
+let rotationClass = logoElement.classList[1];
+```
+
+Now that we have a reference to the currently attached rotation class, we can define some conditional logic to remove and attach our `.rotate-right` and `.rotate-left` classes.
+
+Just use a simple for-loop to swap classes!
+
+```jsx
+if (rotationClass === "rotate-right"){
+    logoElement.classList.remove("rotate-right");
+    logoElement.classList.add("rotate-left");
+  }
+  
+  else{
+    logoElement.classList.remove("rotate-left");
+    logoElement.classList.add("rotate-right");
+  }
+```
+
+That's all of the JavaScript that we need. ✅
+
+Hint: Try writing another animation `@keyframes` sequence, another class that can be attached to the logo `<div>` wrapper, and expand on the for-loop in JavaScript! 
+
+# 💡Try it out on CodePen!
+
+import CodePen from "react-codepen-embed";
+
+<div>
+  <CodePen hash="XWjVEGv" user="ahoward2"/>
+</div>
