@@ -124,15 +124,17 @@ One more thing for our CSS. We want to elegantly open and close our sliders. Wit
 
 This is where we can utilize a CSS **transition!**
 
-So let's add a transition effect to all of our `<div>` elements whenever the `flex` property of the element changes.
+So let's add a transition effect to all of our `<div>` elements.
 
 ```css
 div {
-  transition: flex 1.5s;
+  transition: all 0.5s;
 }
 ```
 
-Yep, that's all we need. So now, whenever a value of a `flex` property of *any* of our elements changes, it will transition to that new state for a total of `1.5` seconds.
+Yep, that's all we need. So now, we will get a smooth transition animation that has a time duration of  0.5 seconds!
+
+>Originally when this **Slide Revealer** was made, we actually were using `transition: flex 0.5s`, but the transition with the [flex property did not work properly on Safari](https://developer.apple.com/forums/thread/131664#:~:text=CSS3%3A%20flex%20transition%20doesn't%20work%20anymore%20at%20least%20since,but%20not%20on%20the%20v.&text=Everything%20works%20on%20Safari%2013.1,animation%20of%20the%20flex%20transition.). Now, `all` works across all browsers that we've tested so far.
 
 That's all for our CSS file! But our button doesn't actually do anything for us yet.
 
