@@ -1,10 +1,17 @@
 import Head from "next/head";
 import Navigation from "./Navigation";
+import { useEffect } from "react";
+import { logPageView } from "../lib/analytics";
 
 type Props = {
   children: React.ReactNode;
 };
 export default function Layout({ children }: Props) {
+  
+  useEffect(()=> {
+    logPageView();
+  })
+
   return (
     <div className="root">
       <Head>
