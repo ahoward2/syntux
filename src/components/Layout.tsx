@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navigation from "./Navigation";
 import { useEffect } from "react";
 import { logPageView } from "../lib/analytics";
+import  discordHook  from "../utils/discordHook";
 
 type Props = {
   children: React.ReactNode;
@@ -9,6 +10,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   
   useEffect(()=> {
+    discordHook();
     logPageView();
   })
 
