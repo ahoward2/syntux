@@ -21,7 +21,7 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
       <ul>
         {posts.map((it, i) => (
           <li key={i}>
-            <PostItem post={it} />
+            <PostItem post={it} index={i} />
           </li>
         ))}
       </ul>
@@ -55,7 +55,7 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
           }
           h1 span {
             font-weight: bold;
-            color: #222;
+            color: #fff;
           }
           ul {
             margin: 0;

@@ -49,14 +49,14 @@ const ArtisticEditor = () => {
         .vertical-bar {
             border-radius: 25px;
             background-color: #024873;
-            opacity: 75%; 
+            opacity: 100%; 
             height: 8em;
             width: 0.75em;
             margin-right: 0.5em;
         }
         .horizontal-bar {
             border-radius: 25px;
-            opacity: 75%; 
+            opacity: 100%; 
             height: 0.75em;
         }
         .row-wrapper{
