@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
-import IcyLogo from "../assets/icycoder-logo.svg";
 import SiteLogo from "../components/SiteLogo";
 import React, { useState } from "react";
 
