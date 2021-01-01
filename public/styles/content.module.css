@@ -1,7 +1,7 @@
 .content {
   font-family: "Ubuntu", sans-serif;
   color: #222;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 .content time {
@@ -14,7 +14,8 @@
 }
 
 .content a {
-  color: blue;
+  color: rgba(27, 31, 35, 0.95);
+  background-color: rgba(232, 236, 241, 1); 
   text-decoration: underline;
 }
 
@@ -44,6 +45,7 @@
   display: block;
   background-color: rgba(27, 31, 35, 0.05);
   line-height: 1.25rem;
+  border-radius: 1.5%;
   padding: 1rem;
   overflow: auto;
   margin: 1.75rem 0 0 0;
@@ -57,10 +59,11 @@
 
 .content code {
   font-family: "Ubuntu Mono", monospace;
-  font-size: 85%;
+  font-size: 90%;
   padding: 0.2em 0.4em;
   margin: 0;
-  background-color: rgba(27, 31, 35, 0.05);
+  color: #1D2A36;
+  background-color: #0068ca3b;
   border-radius: 3px;
 }
 

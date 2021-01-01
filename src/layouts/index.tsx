@@ -134,102 +134,124 @@ export default function Index({
         </style>
         <style global jsx>
           {`
-            /* Syntax highlighting */
+            code[class*="language-"],
+            pre[class*="language-"] {
+              color: #f8f8f2;
+              background: none;
+              font-family: "Fira Code", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+              text-align: left;
+              white-space: pre;
+              word-spacing: normal;
+              word-break: normal;
+              word-wrap: normal;
+              line-height: 1.5;
+              -moz-tab-size: 4;
+              -o-tab-size: 4;
+              tab-size: 4;
+              -webkit-hyphens: none;
+              -moz-hyphens: none;
+              -ms-hyphens: none;
+              hyphens: none;
+            }
+            
+            /* Code blocks */
+            pre[class*="language-"] {
+              padding: 1em;
+              margin: .5em 0;
+              overflow: auto;
+              border-radius: 0.3em;
+            }
+            
+            :not(pre) > code[class*="language-"],
+            pre[class*="language-"] {
+              background: #2E3440;
+            }
+            
+            /* Inline code */
+            :not(pre) > code[class*="language-"] {
+              padding: .1em;
+              border-radius: .3em;
+              white-space: normal;
+            }
+            
             .token.comment,
             .token.prolog,
             .token.doctype,
-            .token.cdata,
-            .token.plain-text {
-              color: #6a737d;
+            .token.cdata {
+              color: #636f88;
             }
-
-            .token.atrule,
-            .token.attr-value,
-            .token.keyword,
-            .token.operator {
-              color: #d73a49;
+            
+            .token.punctuation {
+              color: #81A1C1;
             }
-
+            
+            .namespace {
+              opacity: .7;
+            }
+            
             .token.property,
             .token.tag,
-            .token.boolean,
-            .token.number,
             .token.constant,
             .token.symbol,
             .token.deleted {
-              color: #22863a;
+              color: #81A1C1;
             }
-
+            
+            .token.number {
+              color: #B48EAD;
+            }
+            
+            .token.boolean {
+              color: #81A1C1;
+            }
+            
             .token.selector,
             .token.attr-name,
             .token.string,
             .token.char,
             .token.builtin,
             .token.inserted {
-              color: #032f62;
+              color: #A3BE8C;
             }
-
+            
+            .token.operator,
+            .token.entity,
+            .token.url,
+            .language-css .token.string,
+            .style .token.string,
+            .token.variable {
+              color: #81A1C1;
+            }
+            
+            .token.atrule,
+            .token.attr-value,
             .token.function,
             .token.class-name {
-              color: #6f42c1;
+              color: #88C0D0;
             }
-
-            /* language-specific */
-
-            /* JSX */
-            .language-jsx .token.punctuation,
-            .language-jsx .token.tag .token.punctuation,
-            .language-jsx .token.tag .token.script,
-            .language-jsx .token.plain-text {
-              color: #24292e;
+            
+            .token.keyword {
+              color: #81A1C1;
             }
-
-            .language-jsx .token.tag .token.attr-name {
-              color: #6f42c1;
+            
+            .token.regex,
+            .token.important {
+              color: #EBCB8B;
             }
-
-            .language-jsx .token.tag .token.class-name {
-              color: #005cc5;
+            
+            .token.important,
+            .token.bold {
+              font-weight: bold;
             }
-
-            .language-jsx .token.tag .token.script-punctuation,
-            .language-jsx .token.attr-value .token.punctuation:first-child {
-              color: #d73a49;
+            
+            .token.italic {
+              font-style: italic;
             }
-
-            .language-jsx .token.attr-value {
-              color: #032f62;
+            
+            .token.entity {
+              cursor: help;
             }
-
-            .language-jsx span[class="comment"] {
-              color: pink;
-            }
-
-            /* HTML */
-            .language-html .token.tag .token.punctuation {
-              color: #24292e;
-            }
-
-            .language-html .token.tag .token.attr-name {
-              color: #6f42c1;
-            }
-
-            .language-html .token.tag .token.attr-value,
-            .language-html
-              .token.tag
-              .token.attr-value
-              .token.punctuation:not(:first-child) {
-              color: #032f62;
-            }
-
-            /* CSS */
-            .language-css .token.selector {
-              color: #6f42c1;
-            }
-
-            .language-css .token.property {
-              color: #005cc5;
-            }
+            
           `}
         </style>
       </Layout>
