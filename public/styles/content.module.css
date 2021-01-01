@@ -1,6 +1,8 @@
 .content {
   font-family: "Ubuntu", sans-serif;
   color: #222;
+  border-radius: 0.25rem;
+  margin: 0;
   font-weight: 400;
 }
 
@@ -11,6 +13,7 @@
 .content p {
   line-height: 1.5rem;
   margin: 1.5rem 0 0 0;
+  color: white;
 }
 
 .content a {
@@ -21,6 +24,7 @@
 
 .content h1 {
   margin: 2.5rem 0 0 0;
+  color: white;
 }
 
 .content h2,
@@ -29,6 +33,7 @@
 .content h5 {
   margin: 2rem 0 0 0;
   line-height: 1.25em;
+  color: white;
 }
 
 .content h2::before {
@@ -62,8 +67,8 @@
   font-size: 90%;
   padding: 0.2em 0.4em;
   margin: 0;
-  color: #1D2A36;
-  background-color: #0068ca3b;
+  color: #fff;
+  background-color: #00437A;
   border-radius: 3px;
 }
 
@@ -112,6 +117,7 @@
 .content ol li,
 .content ul li {
   line-height: 1.5rem;
+  color: #fff;
 }
 
 .content li ol,

@@ -20,7 +20,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
         <ul className={"post-list"}>
           {posts.map((it, i) => (
             <li key={i}>
-              <PostItem post={it} />
+              <PostItem post={it} index={i} />
             </li>
           ))}
         </ul>

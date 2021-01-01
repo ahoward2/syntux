@@ -1,6 +1,5 @@
 import IcyLogo from "../assets/icycoder-logo.svg";
 
-
 const SiteLogo = () => {
     return (
         <>
@@ -20,16 +19,20 @@ const SiteLogo = () => {
             left: auto;
             right: 1.25rem;
             z-index: 2;
-            border-radius: 100%;
-            background-color: #001F29;
+            border-radius: 50px;
+            border-color: #9ecaed;
           }
 
           .logo {
             position: absolute;
-            top: 0;
+            top: calc(50% - 150px);
+            left: calc(50% - 150px);
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
             top: 0.25em;
             left: 0.25rem;
-            transition: all 150ms ease-in;
+            transition: all 1000ms ease-in;
           }
 
           @media (min-width: 769px) {

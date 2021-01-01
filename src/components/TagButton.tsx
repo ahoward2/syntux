@@ -21,7 +21,7 @@ export default function TagButton({ tag }: Props) {
         }
         a:active,
         a:hover {
-          background-color: rgba(21, 132, 125, 0.4);
+          background-color: rgba(16, 100, 125, 0.4);
         }
       `}</style>
     </>

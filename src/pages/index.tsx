@@ -4,6 +4,7 @@ import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import IcyLogo from "../assets/icycoder-logo.svg";
 import ArtisticEditor from "../components/ArtisticEditor";
+import PlanetOrb from "../components/planetOrb";
 
 
 export default function Index() {
@@ -26,6 +27,7 @@ export default function Index() {
           </h1>
           <span className="handle">Guides | Articles</span>
         </div>
+        <PlanetOrb></PlanetOrb>
       </div>
       <style jsx>{`
         .container {
@@ -58,6 +60,8 @@ export default function Index() {
           font-size: 2.5rem;
           margin: 0;
           font-weight: 500;
+          color: white;
+          text-shadow: 
         }
         h2 {
           font-size: 1.75rem;

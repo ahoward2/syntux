@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
 import SiteLogo from "../components/SiteLogo";
+import PlanetOrb from "../components/planetOrb";
 import React, { useState } from "react";
 
 export default function Navigation() {
@@ -10,7 +11,8 @@ export default function Navigation() {
   return (
     <>
       <Burger active={active} onClick={() => setActive(!active)} />
-      <SiteLogo />
+      {/* <SiteLogo /> */}
+      {/* <PlanetOrb /> */}
       <div className={"container " + (active ? "active" : "")}>
         <ul>
           <li>
@@ -45,7 +47,7 @@ export default function Navigation() {
               padding: 0;
               position: fixed;
               top: 0;
-              background-color: #fff;
+              background-color: #010F34;
               display: flex;
               flex-direction: column;
               justify-content: center;
@@ -66,7 +68,7 @@ export default function Navigation() {
               margin-bottom: 0;
             }
             .active {
-              color: #222;
+              color: #fff;
             }
 
             @media (min-width: 769px) {
