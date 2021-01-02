@@ -1,0 +1,178 @@
+---
+slug: basic-2d-orbit-animation
+title: Basic 2D Orbital Animation With Pure HTML and CSS
+date: 2021-01-02
+author: ice
+tags:
+  - article
+  - css
+  - html
+---
+# ☕️ Summary
+
+---
+
+In this guide, we create a basic orbital animation with pure HTML and CSS! 🪐
+
+Everything in here is actually 2-dimensional, but with a couple of handy CSS properties and functions, we can achieve something that looks pretty close to a satellite orbiting a spherical object in space.
+
+To jump to the code and see what it looks like, just head to the bottom of the page. 👇
+
+# 🔬 How It Works
+
+---
+
+With just a very small amount of HTML and CSS, we can simulate a fairly decent looking animation. There are a lot of excellent examples of 3-dimensional orbital animations out there on the internet. But if you actually wanted to ship something like this into an application in a production environment, you may want to use a more minimal approach like this to keep your pages fast.
+
+## ⚙️ HTML Code
+
+---
+
+The only HTML that we need for this example is a `body` for the black background, and two `<div>` elements that represent our planet and orbiter object.
+
+```html
+<body>
+  <div class="planet"></div>
+  <div class="orbiter"></div>
+</body>
+```
+
+Very simple. 🙂
+
+## ⚙️ CSS Code
+
+---
+
+There are a couple of key properties and functions that we'll be using in our CSS.
+
+- `box-shadow` this property allows use to produce the inner shading color effects and the outer glowing effect for our planet.
+- `@keyframes` allows us to create an animation sequence with translation functions.
+- `animation` allows us to control the values of our animation.
+- `transform: translateX` allows us to move the position of our satellite object horizontally across the screen.
+- `scale` allows us to scale our satellite object to produce a perception of depth.
+
+First, we set the background of our body element to black.
+
+```css
+body {
+  background: black;
+}
+```
+
+Then, we create our planet powered by the `box-shadow` property to produce that 3-dimension look.
+
+```css
+.planet {
+  position: fixed;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 50px #fff,
+    inset 20px 0 80px #01B2FF,
+    inset -20px 0 80px #8000FF,
+    inset 20px 0 300px #00785C,
+    inset -20px 0 300px #8300F5,
+    0 0 50px #00785C,
+    -10px 0 80px #000278,
+    10px 0 80px #8000FF;
+}
+```
+
+Now, let's make a  `@keyframes` animation sequence to produce the orbit.
+
+Each percentage in the animation sequence defines the steps percent of time in respect to a total amount of time that we want the animation to take. 
+
+**For example:** if our animation lasted a total of 10 seconds, `20%` to `30%` would represent the step from 2s to 3s. 
+
+**How This Sequence Works:**
+
+`0%` satellite object begins it's journey at the right side of the planet and starts as scaled down to 0% of it's total size (invisible). This makes it appear that the satellite has just emerged from behind the planet in it's orbital path.
+
+`10%` satellite object travels 10 pixels to the right and scales up just slightly in order to appear that it's traveling on the z-axis (towards us).
+
+`20%` satellite object travels 30 pixels to the left and scales up, but only by +0.05 percentage of it's total size.
+
+Without explaining all of the rest of the steps in the sequence, you get an idea of how we're using `scale` and `translateX` to make our satellite appear that it's traveling on an orbital path.
+
+All of these values can be fine-tuned and more steps in the sequence can produce a smoother animation.
+
+```css
+@keyframes orbit {
+  0%   { transform: translateX(150px)
+                    scale(0.0);
+  }
+  10%  { transform: translateX(160px)
+                    scale(0.15);
+  }
+  20%  { transform: translateX(130px)
+                    scale(0.2);     
+  }
+  30% { transform: translateX(100px)
+                   scale(0.3);
+  }
+  40% { transform: translateX(60px)
+                   scale(0.35);
+  }
+  50% { transform: translateX(0px)
+                   scale(0.4);
+  }
+  60% { transform: translateX(-60px)
+                   scale(0.35); 
+  }
+  70% { transform: translateX(-100px)
+                   scale(0.3); 
+  }
+  80% { transform: translateX(-130px)
+                   scale(0.2);
+  }
+  90% { transform: translateX(-160px)
+                   scale(0.15); 
+  }
+  100% { transform: translateX(-150px)
+                    scale(0.0);
+  }
+}
+```
+
+Now we just need to define the properties of our satellite `.orbiter`.
+
+```css
+.orbiter {
+  position: fixed;
+  left: 50%;
+  top: 50%; 
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation-name: orbit;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+```
+
+`animation-name` is where we can specify the sequence that we created for the orbit animation.
+
+`animation-duration` is the total amount of time that we want our sequence to animate.
+
+`animation-iteration-count` is the total number of times that we want our animation to execute.
+
+`animation-timing-function` is the function that we want our function to follow.
+
+That's everything we need! Doesn't look too shabby. 🎉
+
+Now it's up to you to make it even better! 
+
+# 💡 Try It Out On CodePen!
+
+---
+
+import CodePen from "react-codepen-embed";
+
+<div>
+  <CodePen hash="PoGRorp" user="ahoward2" height={500}/>
+</div>
