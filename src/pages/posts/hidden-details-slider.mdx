@@ -1,0 +1,266 @@
+---
+slug: hidden-details-slider
+title: Hidden Details Slide Revealer With HTML, CSS, and JavaScript
+date: 2021-01-01
+author: ice
+tags:
+  - article
+  - css
+  - html
+  - javascript
+---
+# ☕️ Summary
+
+---
+
+In this guide, you'll learn how to use HTML, CSS, and JavaScript to make a slider that reveals two cards that might have some hidden or additional details that you want a user to see if they want to open it.
+
+If you haven't already checked it out, we made a [Flex-box Slider Revealer](https://www.icycoder.com/posts/flex-box-slide-revealer) in another guide. We'll be building off the the code from that one. 🙂
+
+The **FULL CODE** and **DEMO** for this design is at the bottom of the page if you want to use if for your project! 👇
+
+# 🔬 How It Works
+
+---
+
+We use HTML to create a layout of elements, CSS to style those elements, and JavaScript to manipulate our HTML and CSS.
+
+We'll be using flex-box to flexibly layout all of our elements. Flex-box is essential when it comes to making your designs response to all screen sizes.  
+
+## ⚙️ HTML Code
+
+---
+
+**First**, we need to create a button and elements that we'll style into sliders and cards that we can manipulate with CSS and JavaScript.
+
+This is a fairly simple layout here. We can just use `<div>` elements to easily layout the structure of our page and assign classes to them so that we can reference the elements from CSS and JavaScript.
+
+```html
+<body>
+  <div class="open-button">
+    <button onclick="onClick()">👈 See Details 👉</button>
+  </div>
+
+  <div class="block-wrapper">
+    <div class="left-block open"></div>
+    <div class="middle-block close">
+      <div class="detail left close-detail"></div>
+      <div class="detail right close-detail"></div>
+    </div>
+    <div class="right-block open"></div>
+  </div>
+</body>
+```
+
+## ⚙️ CSS Code
+
+---
+
+Now, for our CSS (Cascading Style Sheets) we need to define some values for properties that will make our HTML elements look like how we want them to.
+
+First, we add some styling for our button so that we can use it to respond to click events to trigger our slider to open and close. Nothing too complicated in terms of styling here.
+
+```css
+.open-button {
+  top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 18px;
+  width: 100%;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border-style: none;
+  padding: 2em;
+}
+```
+
+We have a `<div class="block-wrapper">` element that wraps around all of the other `<div>` elements, and we assign it a `display: flex;` property and `width: auto;` so that all of the elements inside can be flexible elements inside. This basically serves as a container that will hold our other elements.
+
+We also give the `body` of our page a `background` property with an rbga (red, blue, green, alpha) value so that we can achieve a beautiful 3-dimensional look to the display cards that we'll be making.
+
+```css
+.block-wrapper {
+  display: flex;
+  width: auto;
+  height: 500px;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.088);
+}
+
+.left-block {
+  background-color: black;
+}
+
+.middle-block {
+  display: flex;
+}
+
+.right-block {
+  background-color: black;
+}
+```
+
+We also need to make the elements that have `.left-block` and `.right-block` flex items so that they can fit in an organized manner inside of our wrapper. We haven't done this yet because we can define two separate individual classes that we will eventually attach and detach onto those elements with JavaScript. So let's add:
+
+- `.open`
+- `.close`
+
+```css
+.open {
+  flex: 10;
+}
+
+.close {
+  flex: 0;
+  opacity: 0;
+}
+```
+
+There's a really cool and fun way to make all of the elements on your page transition in a smooth fashion whenever any of the properties change in your `<div>` elements. That's by adding a `transition` property. You'll also be able to see elements smoothly shifting around during the development process which is pretty satisfying, you should try it out in the **CodePen** at the bottom of the page!
+
+```css
+div {
+  transition: all 0.5s;
+}
+```
+
+We want the two display blocks to stack on top of each other if the size of the device is small, like a mobile device.
+
+We can use a `@media` query that will make our middle block behave in a specific way if the width of the screen is less than 768 pixels. We can specify the direction that the elements will flex inside the container by setting the `flex-direction` property to `column`. The `flex-direction` property defaults to `row`.
+
+```css
+@media screen and (max-width: 768px){
+  .middle-block {
+    display: flex;
+    flex-direction: column;
+  }
+}
+```
+
+Here is the tricky, but fun part of our style.
+
+We want to give our cards a 3-dimensional look so we can use the `box-shadow` CSS property to place a shadow behind the elements that make up the blocks.
+
+The sky is really the limit when it comes to using box shadows. The orb on our [homepage](https://www.icycoder.com/) was created almost exclusively with it. 🔮
+
+```css
+.detail {
+  background-color: white;
+  flex: 1;
+  box-shadow:  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+}
+```
+
+We also need to add four more classes that we can use to attach and detach for our cards.
+
+```css
+.left {
+  width: auto;
+  height: auto;
+}
+
+.right {
+  width: auto;
+  height: auto;
+}
+
+.close-detail {
+  margin: 0;
+  opacity: 0;
+}
+
+.open-detail {
+  margin: 1.25em;
+}
+```
+
+That's all the CSS we need! 🎉
+
+## ⚙️ JavaScript Code
+
+---
+
+For our JavaScript, we are expanding on the exact same sort of functionality that we used for  [Flex-box Slider Revealer](https://www.icycoder.com/posts/flex-box-slide-revealer).
+
+We first grab references to all of the elements and class that we want to manipulate on a click event on our button.
+
+```jsx
+const onClick = () => {
+  
+  // sliding blocks
+  const middleBlock = window.document.getElementsByClassName("middle-block")[0];
+  const blockState = middleBlock.classList[1];
+  
+  const leftBlock = window.document.getElementsByClassName("left-block")[0];
+  const leftBlockState = leftBlock.classList[1];
+  
+  const rightBlock = window.document.getElementsByClassName("right-block")[0];
+  const rightBlockState = rightBlock.classList[1];
+  
+  const leftDetail = window.document.getElementsByClassName("left")[0];
+  const leftDetailState = leftDetail.classList[2];
+  
+  const rightDetail = window.document.getElementsByClassName("right")[0];
+  const rightDetailState = leftDetail.classList[2];
+  
+  
+  if (blockState === "open"){
+    middleBlock.classList.remove("open");
+    middleBlock.classList.add("close");
+    
+    leftBlock.classList.remove("close");
+    leftBlock.classList.add("open");
+    
+    rightBlock.classList.remove("close");
+    rightBlock.classList.add("open");
+    
+    leftDetail.classList.remove("open-detail");
+    leftDetail.classList.add("close-detail");
+    
+    rightDetail.classList.remove("open-detail");
+    rightDetail.classList.add("close-detail");
+    
+  } else {
+    middleBlock.classList.remove("close");
+    middleBlock.classList.add("open");
+    
+    leftBlock.classList.remove("open");
+    leftBlock.classList.add("close");
+    
+    rightBlock.classList.remove("open");
+    rightBlock.classList.add("close");
+    
+    leftDetail.classList.remove("close-detail");
+    leftDetail.classList.add("open-detail");
+    
+    rightDetail.classList.remove("close-detail");
+    rightDetail.classList.add("open-detail");
+  }
+}
+```
+
+As you can see, we're doing the same sort of operations a little bit too much. This makes the code in our function too repetitive.
+
+A good challenge that you can do is to try extracting out some of these repetitive swapping of class into their own functions, and execute those functions inside the `onClick` function. 
+
+AND THERE WE HAVE IT! A beautifully animated slider that reveals our cards. 🎊
+
+# 💡 Try It Out On CodePen
+
+---
+
+import CodePen from "react-codepen-embed";
+
+<div>
+  <CodePen hash="bGwLWyp" user="ahoward2" height={500}/>
+</div>
