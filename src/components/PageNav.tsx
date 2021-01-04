@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Burger from "./Burger";
 import React, { useState } from "react";
+import Fab from "./Fab";
 
-export default function Navigation() {
-  const router = useRouter();
+const PageNav = ({children}) => {
+    const router = useRouter();
   const [active, setActive] = useState(false);
   return (
     <>
-      <Burger active={active} onClick={() => setActive(!active)} />
+      <Fab active={active} onClick={() => setActive(!active)} />
       <div className={"container " + (active ? "active" : "")}>
         <ul>
           <li>
@@ -43,11 +43,12 @@ export default function Navigation() {
               padding: 0;
               position: fixed;
               top: 0;
+              left: 0;
               background-color: #010F34;
               display: flex;
               flex-direction: column;
               justify-content: center;
-              z-index: 3;
+              z-index: 1;
               transform: translateY(100%);
               transition: opacity 200ms;
             }
@@ -88,5 +89,7 @@ export default function Navigation() {
         </style>
       </div>
     </>
-  );
+    );
 }
+
+export default PageNav;
