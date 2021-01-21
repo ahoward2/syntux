@@ -82,9 +82,9 @@ export default function Index({
               ))}
             </ul>
           </article>
-          <nav>
+          {/* <nav>
             <PageNav></PageNav>
-          </nav>
+          </nav> */}
           <footer>
             <div className={"social-list"}>
               <SocialList />
