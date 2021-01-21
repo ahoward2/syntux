@@ -17,7 +17,7 @@ export default function Burger({ active, onClick }: Props) {
             cursor: pointer;
             top: 1rem;
             left: 1.25rem;
-            z-index: 2;
+            z-index: 4;
             border-radius: 5px;
             outline: none; 
             
