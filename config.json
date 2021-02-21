@@ -1,13 +1,13 @@
 {
   "base_url": "https://www.icycoder.com",
   "site_title": "Icy Coder",
-  "site_description": "The Coolest Spot For Coders",
+  "site_description": "A small space on the internet to learn about manipulating bits.",
   "site_keywords": [
-    {"keyword":"Developer"},
-    {"keyword":"Programmer"},
-    {"keyword":"Coder"}
+    { "keyword": "Developer" },
+    { "keyword": "Programmer" },
+    { "keyword": "Coder" }
   ],
-  "posts_per_page": 5,
+  "posts_per_page": 6,
   "twitter_account": "@coder_icy",
   "github_account": "ahoward2"
 }

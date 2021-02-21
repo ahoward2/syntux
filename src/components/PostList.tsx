@@ -1,6 +1,5 @@
-import React from "react";
 import { PostContent } from "../lib/posts";
-import PostItem from "./PostItem";
+import { PostItem } from "./PostItem";
 import TagLink from "./TagLink";
 import Pagination from "./Pagination";
 import { TagContent } from "../lib/tags";
@@ -58,16 +57,19 @@ export default function PostList({ posts, tags, pagination }: Props) {
         .posts {
           display: flex;
           flex-direction: column;
-          flex: 1 1 auto;
         }
         .posts li {
           margin-bottom: 1.5rem;
         }
         .post-list {
-          flex: 1 0 auto;
+          display: grid;
+          grid-template-columns: auto auto;
+          grid-template-rows: auto;
+          gap: 0 1.25rem;
         }
         .categories {
           display: none;
+          margin-left: 1.5rem;
         }
         .categories li {
           margin-bottom: 0.75em;

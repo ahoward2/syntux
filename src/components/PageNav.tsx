@@ -3,14 +3,15 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Fab from "./Fab";
 
-const PageNav = ({children}) => {
-    const router = useRouter();
+const PageNav = () => {
+  const router = useRouter();
   const [active, setActive] = useState(false);
   return (
     <>
       <Fab active={active} onClick={() => setActive(!active)} />
       <div className={"container " + (active ? "active" : "")}>
         <ul>
+          <li></li>
           <li>
             <Link href="/">
               <a className={router.pathname === "/" ? "active" : null}>home</a>
@@ -44,7 +45,7 @@ const PageNav = ({children}) => {
               position: fixed;
               top: 0;
               left: 0;
-              background-color: #010F34;
+              background-color: #010f34;
               display: flex;
               flex-direction: column;
               justify-content: center;
@@ -89,7 +90,7 @@ const PageNav = ({children}) => {
         </style>
       </div>
     </>
-    );
-}
+  );
+};
 
 export default PageNav;
