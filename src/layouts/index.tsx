@@ -105,6 +105,9 @@ export default function Index({
             .metadata div {
               display: inline-block;
               margin-right: 0.5rem;
+              padding: 0.5rem;
+              background-color: rgba(21, 132, 125, 0.2);
+              border-radius: 3px;
             }
             article {
               flex: 1 0 auto;
