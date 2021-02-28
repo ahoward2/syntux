@@ -14,6 +14,7 @@ import { SocialList } from "../components/SocialList";
 import TagButton from "../components/TagButton";
 import { getAuthor } from "../lib/authors";
 import { getTag } from "../lib/tags";
+import FeatureImage from "../components/FeatureImage";
 
 type Props = {
   title: string;
@@ -22,6 +23,7 @@ type Props = {
   description: string;
   tags: string[];
   author: string;
+  feature: string;
 };
 export default function Index({
   title,
@@ -30,6 +32,7 @@ export default function Index({
   author,
   tags,
   description,
+  feature,
 }: Props) {
   const keywords = tags.map((it) => getTag(it).name);
   const authorName = getAuthor(author).name;
@@ -73,6 +76,7 @@ export default function Index({
                 </div>
               </div>
             </header>
+            <FeatureImage url={feature}></FeatureImage>
             <div className={styles.content}>{content}</div>
             <ul className={"tag-list"}>
               {tags.map((it, i) => (
@@ -144,7 +148,7 @@ export default function Index({
             code[class*="language-"],
             pre[class*="language-"] {
               color: #f8f8f2;
-              background: none;
+              background: #2e3440;
               font-family: "Fira Code", Consolas, Monaco, "Andale Mono",
                 "Ubuntu Mono", monospace;
               text-align: left;
