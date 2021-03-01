@@ -24,6 +24,7 @@
     "normalize.css": "^8.0.1",
     "react": "16.13.1",
     "react-codepen-embed": "^1.0.2",
+    "react-coinbase-commerce": "^1.5.1",
     "react-dom": "16.13.1",
     "react-ga": "^3.3.0",
     "react-instagram-embed": "^1.5.0",

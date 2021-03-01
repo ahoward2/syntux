@@ -15,6 +15,7 @@ import TagButton from "../components/TagButton";
 import { getAuthor } from "../lib/authors";
 import { getTag } from "../lib/tags";
 import FeatureImage from "../components/FeatureImage";
+import Donate from "../components/Donate";
 
 type Props = {
   title: string;
@@ -91,6 +92,7 @@ export default function Index({
             <PageNav></PageNav>
           </nav> */}
           <footer>
+            <Donate></Donate>
             <div className={"social-list"}>
               <SocialList />
             </div>
