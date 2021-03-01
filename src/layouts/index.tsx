@@ -55,6 +55,7 @@ export default function Index({
           url={`/posts/${slug}`}
           title={title}
           description={description}
+          image={feature}
         />
         <JsonLdMeta
           url={`/posts/${slug}`}
