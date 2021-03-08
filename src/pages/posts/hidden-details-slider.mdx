@@ -3,6 +3,7 @@ slug: hidden-details-slider
 title: Hidden Details Slide Revealer With HTML, CSS, and JavaScript
 date: 2021-01-01
 author: ice
+feature: https://res.cloudinary.com/dfgixacwt/image/upload/v1615159664/articles/flexbox/hidden-details-slide_dzj5on.jpg
 tags:
   - article
   - css
@@ -28,7 +29,7 @@ The **FULL CODE** and **DEMO** for this design is at the bottom of the page if y
 
 We use HTML to create a layout of elements, CSS to style those elements, and JavaScript to manipulate our HTML and CSS.
 
-We'll be using flex-box to flexibly layout all of our elements. Flex-box is essential when it comes to making your designs response to all screen sizes.  
+We'll be using flex-box to flexibly layout all of our elements. Flex-box is essential when it comes to making your designs response to all screen sizes.
 
 ## ⚙️ HTML Code
 
@@ -137,7 +138,7 @@ We want the two display blocks to stack on top of each other if the size of the 
 We can use a `@media` query that will make our middle block behave in a specific way if the width of the screen is less than 768 pixels. We can specify the direction that the elements will flex inside the container by setting the `flex-direction` property to `column`. The `flex-direction` property defaults to `row`.
 
 ```css
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .middle-block {
     display: flex;
     flex-direction: column;
@@ -155,12 +156,9 @@ The sky is really the limit when it comes to using box shadows. The orb on our [
 .detail {
   background-color: white;
   flex: 1;
-  box-shadow:  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 ```
 
@@ -193,68 +191,65 @@ That's all the CSS we need! 🎉
 
 ---
 
-For our JavaScript, we are expanding on the exact same sort of functionality that we used for  [Flex-box Slider Revealer](https://www.icycoder.com/posts/flex-box-slide-revealer).
+For our JavaScript, we are expanding on the exact same sort of functionality that we used for [Flex-box Slider Revealer](https://www.icycoder.com/posts/flex-box-slide-revealer).
 
 We first grab references to all of the elements and class that we want to manipulate on a click event on our button.
 
 ```jsx
 const onClick = () => {
-  
   // sliding blocks
   const middleBlock = window.document.getElementsByClassName("middle-block")[0];
   const blockState = middleBlock.classList[1];
-  
+
   const leftBlock = window.document.getElementsByClassName("left-block")[0];
   const leftBlockState = leftBlock.classList[1];
-  
+
   const rightBlock = window.document.getElementsByClassName("right-block")[0];
   const rightBlockState = rightBlock.classList[1];
-  
+
   const leftDetail = window.document.getElementsByClassName("left")[0];
   const leftDetailState = leftDetail.classList[2];
-  
+
   const rightDetail = window.document.getElementsByClassName("right")[0];
   const rightDetailState = leftDetail.classList[2];
-  
-  
-  if (blockState === "open"){
+
+  if (blockState === "open") {
     middleBlock.classList.remove("open");
     middleBlock.classList.add("close");
-    
+
     leftBlock.classList.remove("close");
     leftBlock.classList.add("open");
-    
+
     rightBlock.classList.remove("close");
     rightBlock.classList.add("open");
-    
+
     leftDetail.classList.remove("open-detail");
     leftDetail.classList.add("close-detail");
-    
+
     rightDetail.classList.remove("open-detail");
     rightDetail.classList.add("close-detail");
-    
   } else {
     middleBlock.classList.remove("close");
     middleBlock.classList.add("open");
-    
+
     leftBlock.classList.remove("open");
     leftBlock.classList.add("close");
-    
+
     rightBlock.classList.remove("open");
     rightBlock.classList.add("close");
-    
+
     leftDetail.classList.remove("close-detail");
     leftDetail.classList.add("open-detail");
-    
+
     rightDetail.classList.remove("close-detail");
     rightDetail.classList.add("open-detail");
   }
-}
+};
 ```
 
 As you can see, we're doing the same sort of operations a little bit too much. This makes the code in our function too repetitive.
 
-A good challenge that you can do is to try extracting out some of these repetitive swapping of class into their own functions, and execute those functions inside the `onClick` function. 
+A good challenge that you can do is to try extracting out some of these repetitive swapping of class into their own functions, and execute those functions inside the `onClick` function.
 
 AND THERE WE HAVE IT! A beautifully animated slider that reveals our cards. 🎊
 
@@ -265,5 +260,5 @@ AND THERE WE HAVE IT! A beautifully animated slider that reveals our cards. 🎊
 import CodePen from "react-codepen-embed";
 
 <div>
-  <CodePen hash="bGwLWyp" user="ahoward2" height={500}/>
+  <CodePen hash="bGwLWyp" user="ahoward2" height={500} />
 </div>

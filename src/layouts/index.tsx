@@ -70,17 +70,18 @@ export default function Index({
             <header>
               <h1>{title}</h1>
               <div className={"metadata"}>
-                <div>
+                <FeatureImage url={feature}></FeatureImage>
+                <div className={"date-wrapper"}>
                   <Date date={date} />
                 </div>
-                <div>
+                <div className={"author-wrapper"}>
                   <Author author={getAuthor(author)} />
                 </div>
               </div>
             </header>
-            <FeatureImage url={feature}></FeatureImage>
             <div className={styles.content}>{content}</div>
             <ul className={"tag-list"}>
+              <h2>Related Topics</h2>
               {tags.map((it, i) => (
                 <li key={i}>
                   <TagButton tag={getTag(it)} />
@@ -120,8 +121,12 @@ export default function Index({
               flex: 1 0 auto;
             }
             h1 {
-              margin: 0 0 0.5rem;
+              margin: 0 0 1rem;
               font-size: 2.25rem;
+              text-align: center;
+            }
+            .date-wrapper {
+              margin-top: 0.5rem;
             }
             .tag-list {
               list-style: none;
