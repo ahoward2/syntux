@@ -3,6 +3,7 @@ slug: flex-box-slide-revealer
 title: Flex-box Slide Revealer With JavaScript, HTML, and CSS
 date: 2020-12-30
 author: ice
+feature: https://res.cloudinary.com/dfgixacwt/image/upload/v1615096794/articles/flexbox/flex-box-slide-revealer_wicmgl.jpg
 tags:
   - article
   - css
@@ -14,7 +15,7 @@ tags:
 
 ---
 
-Flexbox is a *really* nice CSS module that provides a ton of...flexibility. 😁 
+Flexbox is a _really_ nice CSS module that provides a ton of...flexibility. 😁
 
 In this small guide, we're going to build a simple design with HTML, CSS, and JavaScript. We're going to call this design - **Slide Revealer**. If you want to skip to the **full code**, see the CodePen at the bottom of the page. 👇
 
@@ -34,7 +35,7 @@ First, we need to create a button that we can use to trigger events when the use
 
 Pretty simple, add a `<div>` element with a `class="open-button"` class that will wrap around a `<button>` element.
 
-We also want to add a function to handle button click events so we add our own `onclick="onClick()"` property. Later, in our JavaScript we will define the logic for the `onClick()` function that will execute on every click. 
+We also want to add a function to handle button click events so we add our own `onclick="onClick()"` property. Later, in our JavaScript we will define the logic for the `onClick()` function that will execute on every click.
 
 ```html
 <div class="open-button">
@@ -42,7 +43,7 @@ We also want to add a function to handle button click events so we add our own `
 </div>
 ```
 
-Secondly, we need to define 3 `<div>` elements that will make up our **Slide Revealer** and 1 more `<div>` element that will serve as the *wrapper* or more specifically the *flex-box container* that will hold our flexible elements.
+Secondly, we need to define 3 `<div>` elements that will make up our **Slide Revealer** and 1 more `<div>` element that will serve as the _wrapper_ or more specifically the _flex-box container_ that will hold our flexible elements.
 
 ```html
 <div class="block-wrapper">
@@ -60,7 +61,7 @@ But that's all of the HTML we need, now onto the CSS styling! 🎨
 
 ---
 
-First, we need to style the container that holds our `<button>` so that it's centered, and also *above* the other elements on our page. It's cliche that centering anything in CSS is super tricky but once you do it a couple of times it's pretty easy. 
+First, we need to style the container that holds our `<button>` so that it's centered, and also _above_ the other elements on our page. It's cliche that centering anything in CSS is super tricky but once you do it a couple of times it's pretty easy.
 
 Since we added `class="open-button"` to the wrapper around our button, we can define a style for that class which will position our button.
 
@@ -83,30 +84,30 @@ Notice the `z-index: 2;` is how we can place the button on a higher "layer" than
 
 ---
 
-Now let's dive into the actual **flex-box** functionality. 
+Now let's dive into the actual **flex-box** functionality.
 
-Flex-box will automatically make the elements inside of a container - *flexible.* There is sooo much that you can do with flex-box but for this example, we will stick to the specific functionality of our **Slide Revealer**.
+Flex-box will automatically make the elements inside of a container - _flexible._ There is sooo much that you can do with flex-box but for this example, we will stick to the specific functionality of our **Slide Revealer**.
 
-`.block-wrapper`: this is the class for our flex-box *container.* By setting the `display` property to `flex`, we allow the elements inside of the container to be flexible. We also set dimensional properties so that the elements inside can automatically be responsive.
+`.block-wrapper`: this is the class for our flex-box _container._ By setting the `display` property to `flex`, we allow the elements inside of the container to be flexible. We also set dimensional properties so that the elements inside can automatically be responsive.
 
-`.left-block` & `.right-block`: these are the classes for our two outer slides. We give them the `flex: 1;` property.  This actually determines the *flex-grow* factor relative to the size on the container and the other flexible elements inside the container. This can be confusing at first but you'll see how this works in the CodePen demo at the bottom of this page! ⏬
+`.left-block` & `.right-block`: these are the classes for our two outer slides. We give them the `flex: 1;` property. This actually determines the _flex-grow_ factor relative to the size on the container and the other flexible elements inside the container. This can be confusing at first but you'll see how this works in the CodePen demo at the bottom of this page! ⏬
 
-`.close`: this is the class that we will attach and detach to our middle block element to close our slider. We give it a `flex` property with a *flex-grow* factor of `0`. This actually makes sense...we want to attach this class to the `middle-block` element to give it a size of `0`. We want it to take up no space when it's closed.
+`.close`: this is the class that we will attach and detach to our middle block element to close our slider. We give it a `flex` property with a _flex-grow_ factor of `0`. This actually makes sense...we want to attach this class to the `middle-block` element to give it a size of `0`. We want it to take up no space when it's closed.
 
-`.open`: similar to our class to close the slider, we will be attaching and detaching this class to our `middle-block` element to open the slider. We give it a `flex` property with a *flex-grow* factor of `10`. To explain how this will work...our `.left-block` and `.right-block` will always have a *flex-grow* factor of `1`, and if our `.open` class with a *flex-grow* factor of `10` is attached to our `middle-block` element, the size of each block in the container are relative to `1+10+1=12`. So when we open our slider, the middle block will then occupy `10/12ths` of the total size of the container.
+`.open`: similar to our class to close the slider, we will be attaching and detaching this class to our `middle-block` element to open the slider. We give it a `flex` property with a _flex-grow_ factor of `10`. To explain how this will work...our `.left-block` and `.right-block` will always have a _flex-grow_ factor of `1`, and if our `.open` class with a _flex-grow_ factor of `10` is attached to our `middle-block` element, the size of each block in the container are relative to `1+10+1=12`. So when we open our slider, the middle block will then occupy `10/12ths` of the total size of the container.
 
-Okay, that's a lot but hopefully that makes sense. 😅 
+Okay, that's a lot but hopefully that makes sense. 😅
 
 ```css
 .block-wrapper {
   display: flex;
-	width: auto;
+  width: auto;
   height: 500px;
 }
 
 .left-block {
   flex: 1;
-  background-color: #0B9ED9;
+  background-color: #0b9ed9;
 }
 
 .close {
@@ -135,9 +136,9 @@ div {
 }
 ```
 
-Yep, that's all we need. So now, we will get a smooth transition animation that has a time duration of  0.5 seconds!
+Yep, that's all we need. So now, we will get a smooth transition animation that has a time duration of 0.5 seconds!
 
->Originally when this **Slide Revealer** was made, we actually were using `transition: flex 0.5s`, but the transition with the [flex property did not work properly on Safari](https://developer.apple.com/forums/thread/131664#:~:text=CSS3%3A%20flex%20transition%20doesn't%20work%20anymore%20at%20least%20since,but%20not%20on%20the%20v.&text=Everything%20works%20on%20Safari%2013.1,animation%20of%20the%20flex%20transition.). Now, `all` works across all browsers that we've tested so far.
+> Originally when this **Slide Revealer** was made, we actually were using `transition: flex 0.5s`, but the transition with the [flex property did not work properly on Safari](https://developer.apple.com/forums/thread/131664#:~:text=CSS3%3A%20flex%20transition%20doesn't%20work%20anymore%20at%20least%20since,but%20not%20on%20the%20v.&text=Everything%20works%20on%20Safari%2013.1,animation%20of%20the%20flex%20transition.). Now, `all` works across all browsers that we've tested so far.
 
 That's all for our CSS file! But our button doesn't actually do anything for us yet.
 
@@ -151,18 +152,18 @@ So now we need to actually do something to our elements whenever a user clicks o
 const onClick = () => {
   const middleBlock = window.document.getElementsByClassName("middle-block")[0];
   const blockState = middleBlock.classList[1];
-  
-  if (blockState === "open"){
+
+  if (blockState === "open") {
     middleBlock.classList.remove("open");
     middleBlock.classList.add("close");
   } else {
     middleBlock.classList.remove("close");
     middleBlock.classList.add("open");
   }
-}
+};
 ```
 
-If you've seen **[Manipulating CSS Classes To Trigger Animations](https://www.icycoder.com/posts/manipulating-css-classes-animations)** then you'll be familiar with this function. 
+If you've seen **[Manipulating CSS Classes To Trigger Animations](https://www.icycoder.com/posts/manipulating-css-classes-animations)** then you'll be familiar with this function.
 
 `middleBlock` stores a reference to our `middle-block` element.
 
@@ -170,7 +171,7 @@ If you've seen **[Manipulating CSS Classes To Trigger Animations](https://www.ic
 
 Then, we just add an `if-else` statement that checks to see if the currently attached class is `.open` or `.close` and will perform a swap.
 
-Annnnnddddd, that's it! Try playing around with the code in the CodePen below. That's the best way to learn. Just hop in and change some of the values. 
+Annnnnddddd, that's it! Try playing around with the code in the CodePen below. That's the best way to learn. Just hop in and change some of the values.
 
 Happy Coding. 👋
 
@@ -181,5 +182,5 @@ Happy Coding. 👋
 import CodePen from "react-codepen-embed";
 
 <div>
-  <CodePen hash="MWjQwWy" user="ahoward2" height={500}/>
+  <CodePen hash="MWjQwWy" user="ahoward2" height={500} />
 </div>

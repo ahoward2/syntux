@@ -14,7 +14,6 @@ export const FeatureImage: React.FC<FeatureImageProps> = ({
         {`
           .responsive {
             border-radius: 3px;
-            margin-top: 0.5rem;
             width: 100%;
             height: auto;
           }
