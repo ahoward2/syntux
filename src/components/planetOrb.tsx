@@ -1,28 +1,18 @@
-
 const planetOrb = () => {
-    return (
-        <>
-        <div className="planet">
-
-        </div>
-        <style jsx>
+  return (
+    <>
+      <div className="planet"></div>
+      <style jsx>
         {`
           .planet {
             position: fixed;
-            top: calc(100% - 150px);
-            left: calc(50% - 150px);
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            box-shadow:
-                inset 0 0 50px #fff,
-                inset 20px 0 80px #01B2FF,
-                inset -20px 0 80px #8000FF,
-                inset 20px 0 300px #00785C,
-                inset -20px 0 300px #8300F5,
-                0 0 50px #00785C,
-                -10px 0 80px #000278,
-                10px 0 80px #8000FF;
+            box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #01b2ff,
+              inset -20px 0 80px #8000ff, inset 20px 0 300px #00785c,
+              inset -20px 0 300px #8300f5, 0 0 50px #00785c,
+              -10px 0 80px #000278, 10px 0 80px #8000ff;
             transition: all 1000ms ease-in;
           }
 
@@ -33,9 +23,8 @@ const planetOrb = () => {
           }
         `}
       </style>
-        </>
-        
-    );
-}
+    </>
+  );
+};
 
 export default planetOrb;

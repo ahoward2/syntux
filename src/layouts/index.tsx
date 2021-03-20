@@ -72,10 +72,10 @@ export default function Index({
               <div className={"metadata"}>
                 <FeatureImage url={feature}></FeatureImage>
                 <div className={"date-wrapper"}>
-                  <Date date={date} />
+                  <Date date={date} color={"#010f34"} />
                 </div>
                 <div className={"author-wrapper"}>
-                  <Author author={getAuthor(author)} />
+                  <Author author={getAuthor(author)} color={"#010f34"} />
                 </div>
               </div>
             </header>
@@ -114,7 +114,7 @@ export default function Index({
               display: inline-block;
               margin-right: 0.5rem;
               padding: 0.5rem;
-              background-color: rgba(21, 132, 125, 0.2);
+              background-color: rgba(255, 255, 255, 1);
               border-radius: 3px;
             }
             article {

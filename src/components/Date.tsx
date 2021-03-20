@@ -2,15 +2,20 @@ import { format, formatISO } from "date-fns";
 
 type Props = {
   date: Date;
+  color: string;
+  emoji?: boolean;
 };
-export default function Date({ date }: Props) {
+export default function Date({ date, color, emoji }: Props) {
   return (
     <time dateTime={formatISO(date)}>
-      <span>{format(date, "LLLL d, yyyy")}</span>
+      <span>
+        {emoji ? "🗓" + " " : null}
+        {format(date, "LLLL d, yyyy")}
+      </span>
       <style jsx>
         {`
           span {
-            color: #0ce8da;
+            color: ${color};
           }
         `}
       </style>
