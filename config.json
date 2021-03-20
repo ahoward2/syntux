@@ -7,7 +7,7 @@
     { "keyword": "Programmer" },
     { "keyword": "Coder" }
   ],
-  "posts_per_page": 5,
+  "posts_per_page": 6,
   "twitter_account": "@coder_icy",
   "github_account": "ahoward2"
 }

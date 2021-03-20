@@ -2,10 +2,10 @@ import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import IcyLogo from "../assets/icycoder-logo.svg";
 import ArtisticEditor from "../components/ArtisticEditor";
 import PlanetOrb from "../components/planetOrb";
-
+import Button from "../components/Button";
+import Particles from "react-particles-js";
 
 export default function Index() {
   return (
@@ -13,33 +13,27 @@ export default function Index() {
       <BasicMeta url={"/"} />
       <OpenGraphMeta url={"/"} />
       <TwitterCardMeta url={"/"} />
+
       <div className="container">
-        <div>
-          <div className="graphic-wrapper">
-            <div className="logo">
-              <IcyLogo width={100} height={100}></IcyLogo>
-            </div>
-            <div className="gap"></div>
-            <ArtisticEditor></ArtisticEditor>
-          </div>
-          <h1>
-            Welcome To IcyCoder<span className="fancy">.</span>
-          </h1>
-          <span className="handle">Guides | Articles</span>
+        <h1>Welcome To IcyCoder</h1>
+        {/* <div className="graphic-wrapper">
+          <ArtisticEditor></ArtisticEditor>
+        </div> */}
+        <div className="learn-button-wrapper">
+          <Button text={"Guides 🚀"} href="/posts"></Button>
         </div>
-        <PlanetOrb></PlanetOrb>
+        <div className="particles-wrapper">
+          <Particles width={"300px"} height={"300px"}></Particles>
+          <PlanetOrb></PlanetOrb>
+        </div>
       </div>
       <style jsx>{`
         .container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: 1 1 auto;
           padding: 0 1.5rem;
+          margin: 2rem auto 2rem auto;
         }
         .graphic-wrapper {
           display: flex;
-          justify-content: space-between;
         }
         .gap {
           width: 0.5em;
@@ -52,21 +46,11 @@ export default function Index() {
             transform: rotate(359deg);
           }
         }
-        .logo {
-          margin: auto;
-          animation: rotation 8s infinite linear;
-        }
         h1 {
-          font-size: 2.5rem;
+          font-size: 2rem;
           margin: 0;
           font-weight: 500;
           color: white;
-          text-shadow: 
-        }
-        h2 {
-          font-size: 1.75rem;
-          font-weight: 400;
-          line-height: 1.25;
         }
         .fancy {
           color: #15847d;
@@ -78,12 +62,26 @@ export default function Index() {
           letter-spacing: 0.05em;
         }
 
+        .learn-button-wrapper {
+          margin: 2rem 0 0 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .particles-wrapper {
+          margin: 6rem 0 0 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
         @media (min-width: 769px) {
-          h1 {
-            font-size: 3rem;
+          .container {
+            padding: 0 1.5rem;
+            margin: 0rem auto 0rem auto;
           }
-          h2 {
-            font-size: 2.25rem;
+          h1 {
+            font-size: 4rem;
           }
         }
       `}</style>
