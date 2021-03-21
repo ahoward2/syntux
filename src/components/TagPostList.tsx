@@ -21,7 +21,7 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
       <ul>
         {posts.map((it, i) => (
           <li key={i}>
-            <PostItem post={it} index={i} />
+            <PostItem post={it} />
           </li>
         ))}
       </ul>
