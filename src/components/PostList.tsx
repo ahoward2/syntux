@@ -19,7 +19,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
         <ul className={"post-list"}>
           {posts.map((it, i) => (
             <li key={i}>
-              <PostItem post={it} index={i} />
+              <PostItem post={it} />
             </li>
           ))}
         </ul>
@@ -45,6 +45,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
           margin: 0 auto;
           max-width: 1200px;
           width: 100%;
+          height: 100%;
           padding: 0 1.5rem;
         }
         ul {
@@ -77,7 +78,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
         }
         .categories {
           display: none;
-          margin-left: 1.5rem;
+          margin-left: 2rem;
         }
         .categories li {
           margin-bottom: 0.75em;
