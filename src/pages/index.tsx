@@ -47,10 +47,15 @@ export default function Index() {
           }
         }
         h1 {
-          font-size: 2rem;
+          position: fixed;
+          top: 1.25rem;
+          left: auto;
+          right: 1.25rem;
+          text-align: center;
+          font-size: 1.5rem;
           margin: 0;
-          font-weight: 500;
           color: white;
+          padding: 0.1rem 0.2rem;
         }
         .fancy {
           color: #15847d;
@@ -82,6 +87,9 @@ export default function Index() {
           }
           h1 {
             font-size: 4rem;
+            position: relative;
+            top: 0;
+            right: 0;
           }
         }
       `}</style>
