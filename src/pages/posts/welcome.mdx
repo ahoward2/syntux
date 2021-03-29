@@ -9,6 +9,8 @@ tags:
   - article
 ---
 
+import QuizGenerator from "../../components/QuizGenerator/QuizGenerator";
+
 ## 📝 Table Of Contents
 
 ## Welcome To Icy Coder
@@ -51,5 +53,34 @@ grow as more content comes out.
 - [XState](https://xstate.js.org/) -> finite state machine state management
 - [MDX](https://mdxjs.com/) -> markdown for the component era
 - [Solidity &| Web 3.0](https://docs.soliditylang.org/en/v0.8.0/index.html) -> language for implementing smart contracts on the ethereum network and web 3.0 dApps (decentralized apps)
+
+## Contributing: Authors & Developers
+
+Anyone interested in contributing an articles or programming guides are welcome to open pull requests to the [syntux repository]("https://github.com/ahoward2/syntux/tree/master/src/pages/posts").
+
+Before contributing you'll want to have at least a general understanding about how React works, and how to write with markdown syntax. The file format for guides and articles on icycoder are a mixture of markdown and jsx -> [MDX]("https://mdxjs.com/")!
+
+Start contributing today by cloning the [syntux repo](https://github.com/ahoward2/syntux) and adding your own `.mdx` file! 😊
+
+## Pull Request Checklist
+
+- File must be in the `/src/pages/posts` directory
+- File must follow naming convention: `slug-of-guide.mdx`
+- Top of the file must contain appropriate metadata [see other pages for examples (metadata guidelines coming soon)](https://raw.githubusercontent.com/ahoward2/syntux/master/src/pages/posts/welcome.mdx)
+- _For first time contributors_ you must also add yourself as an author in `authors.yaml` in the `/meta` directory (see icycoder author example at the top of the file)
+
+## Review - How does one contribute an article or guide to icycoder?
+
+<div>
+  <QuizGenerator
+    answerChoices={[
+      "Email a word doc to icycoder@gmail.com",
+      "Submit a pull request to the syntux repository on github",
+      "Tweet to the @coder_icy twitter account",
+      "Submit a proposal on the icycoder discord",
+    ]}
+    correctAnswerIndex={1}
+  ></QuizGenerator>
+</div>
 
 _Consider Following The IcyCoder [Twitter](https://twitter.com/coder_icy) 🐦_
