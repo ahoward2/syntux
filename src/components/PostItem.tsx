@@ -17,9 +17,8 @@ export const PostItem = ({ post }: PostItemProps) => {
             <FeatureImage url={post.feature}></FeatureImage>
             <div className="post-item-lower">
               <h2>{post.title}</h2>
-              <hr></hr>
               <p>{post.excerpt}</p>
-              <Date date={parseISO(post.date)} color={"#010f34"} emoji={true} />
+              <Date date={parseISO(post.date)} color={"white"} emoji={true} />
             </div>
           </a>
         </Link>
@@ -28,29 +27,32 @@ export const PostItem = ({ post }: PostItemProps) => {
         {`
           .post-item-wrapper {
             transition: 0.3s;
-            background: white;
             border: solid;
+            border-color: rgba(255, 255, 255, 0.5);
             margin-top: 0.5rem;
+            height: 100%;
           }
           a {
             display: inline-block;
           }
           .post-item-wrapper:active,
           .post-item-wrapper:hover {
-            margin-top: -0.5rem;
+            border-color: white;
+            transform: scale(1.1);
+            box-shadow: 5px 5px 100px 5px #0ff;
           }
           h2 {
             margin: 0;
             font-size: 1rem;
             text-align: left;
-            color: #010f34;
+            color: white;
           }
           p {
             font-size: 0.75rem;
-            color: #010f34;
+            color: white;
           }
           .post-item-lower {
-            padding: 0.5rem;
+            padding: 1rem 0.5rem 0.5rem 0.5rem;
           }
 
           @media (min-width: 769px) {

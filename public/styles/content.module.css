@@ -13,13 +13,12 @@
 
 .content p {
   line-height: 1.5rem;
-  margin: 1.5rem 0 0 0;
+  margin: 1.5rem 0 1.5rem 0;
   color: white;
 }
 
 .content a {
-  color: rgba(27, 31, 35, 0.95);
-  background-color: rgba(232, 236, 241, 1);
+  color: #0ce8da;
   text-decoration: underline;
 }
 
@@ -51,7 +50,7 @@
   display: block;
   background-color: #2e3440;
   line-height: 1.25rem;
-  border-radius: 1.5%;
+  border-radius: 1%;
   padding: 1rem;
   overflow: auto;
   margin: 1.75rem 0 0 0;
@@ -117,6 +116,7 @@
 
 .content ol li,
 .content ul li {
+  margin-top: 1rem;
   line-height: 1.5rem;
   color: #fff;
 }
