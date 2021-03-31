@@ -42,7 +42,7 @@ const QuizGenerator = ({
               {answerChoice}
               {isAnswered &&
               userAnswer === answerChoices.indexOf(answerChoice) ? (
-                <span className="answer-choice-icon">{" 👈"}</span>
+                <span className="answer-choice-icon">{"👈 your answer"}</span>
               ) : null}
             </button>
           ))}
@@ -68,6 +68,12 @@ const QuizGenerator = ({
             border-radius: 50%;
           }
 
+          .answer-choice-icon {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0rem 1rem 0rem 1rem;
+            margin-left: 1rem;
+          }
+
           .quiz-header {
             margin-left: 1.25rem;
             margin-right: 1.25rem;
@@ -81,7 +87,7 @@ const QuizGenerator = ({
             text-align: left;
             line-height: 2rem;
             color: white;
-            background: rgba(0, 0, 0, 0);
+            background: rgba(255, 255, 255, 0);
             border-style: none;
             margin-top: 1rem;
             padding-top: 0.5rem;
@@ -93,18 +99,22 @@ const QuizGenerator = ({
           }
 
           button:hover {
-            background: green;
+            border-style: solid;
+            border-color: white;
           }
 
           button:active {
             border-style: solid;
+            background: none;
           }
 
           .red-background {
-            background: red;
+            color: red;
+            background: rgba(255, 0, 75, 0.2);
           }
           .green-background {
-            background: green;
+            color: lightgreen;
+            background: rgba(0, 255, 75, 0.2);
           }
         `}</style>
       </div>

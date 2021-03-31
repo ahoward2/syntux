@@ -71,9 +71,9 @@ export default function PostList({ posts, tags, pagination }: Props) {
         @media (min-width: 769px) {
           .post-list {
             display: grid;
-            grid-template-columns: auto auto auto;
-            grid-template-rows: auto;
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 2.5rem;
           }
         }
         .categories {
