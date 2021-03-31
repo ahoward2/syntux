@@ -35,11 +35,9 @@ export const PostItem = ({ post }: PostItemProps) => {
           a {
             display: inline-block;
           }
-          .post-item-wrapper:active,
           .post-item-wrapper:hover {
             border-color: white;
             transform: scale(1.1);
-            box-shadow: 5px 5px 100px 5px #0ff;
           }
           h2 {
             margin: 0;
