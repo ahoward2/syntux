@@ -12,7 +12,7 @@
 }
 
 .content p {
-  line-height: 1.5rem;
+  line-height: 1.75rem;
   margin: 1.5rem 0 1.5rem 0;
   color: white;
 }
@@ -48,7 +48,7 @@
 
 .content pre {
   display: block;
-  background-color: #2e3440;
+  background-color: rgba(0, 0, 0, 0.4);
   line-height: 1.25rem;
   border-radius: 1%;
   padding: 1rem;
@@ -57,7 +57,7 @@
 }
 
 .content pre code {
-  background-color: #2e3440;
+  background-color: rgba(0, 0, 0, 0.4);
   font-size: 100%;
   padding: 0;
 }
@@ -65,10 +65,10 @@
 .content code {
   font-family: "Fira Code", Consolas, Monaco, "Andale Mono";
   font-size: 90%;
-  padding: 0.2em 0.4em;
+  padding: 0.1em 0.2em;
   margin: 0;
-  color: #fff;
-  background-color: #2e3440;
+  color: rgba(0, 0, 0, 1);
+  background-color: white;
   border-radius: 3px;
 }
 

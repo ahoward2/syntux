@@ -156,7 +156,7 @@ export default function Index({
             code[class*="language-"],
             pre[class*="language-"] {
               color: #f8f8f2;
-              background: #2e3440;
+              background: rgba(0, 0, 0, 0.4);
               font-family: "Fira Code", Consolas, Monaco, "Andale Mono",
                 "Ubuntu Mono", monospace;
               text-align: left;
@@ -184,7 +184,7 @@ export default function Index({
 
             :not(pre) > code[class*="language-"],
             pre[class*="language-"] {
-              background: #2e3440;
+              background: rgba(0, 0, 0, 0.4);
             }
 
             /* Inline code */
