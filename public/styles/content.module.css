@@ -62,12 +62,12 @@
   padding: 0;
 }
 
-.content code {
+.content :not(pre) code {
   font-family: "Fira Code", Consolas, Monaco, "Andale Mono";
   font-size: 90%;
   padding: 0.1em 0.2em;
   margin: 0;
-  color: rgb(255, 0, 255);
+  color: orange;
   background-color: rgb(0, 1, 37);
   border-radius: 3px;
 }
