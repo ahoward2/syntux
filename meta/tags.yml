@@ -7,3 +7,5 @@ tags:
     name: html
   - slug: javascript
     name: javascript
+  - slug: typescript
+    name: typescript

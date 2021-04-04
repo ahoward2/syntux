@@ -1,0 +1,223 @@
+---
+slug: utility-types-partial
+title: TypeScript Partial Utility Type
+date: 2021-04-03
+feature: https://res.cloudinary.com/dfgixacwt/image/upload/v1617566292/articles/partial-type/partial-type-feature_xkdn9a.jpg
+author: ice
+excerpt: Short guide to TypeScript's `Partial` utility type. 🛠
+tags:
+  - article
+  - typescript
+---
+
+import QuizGenerator from "../../components/QuizGenerator/QuizGenerator";
+
+## 📝 Table Of Contents
+
+## ☕️ Summary
+
+The `Partial<Type>` utility type constructs a type with all properties of `Type` set to optional.
+It returns a type that represents all subsets of the given type.
+This creates a really flexible way of making a new copy of an updated object such as a user.
+With Partial we can re-use some or all properties from Types that already exist.
+
+🎓 Fun fact: Partial is used in the FunctionComponent interface for the `React.FC` type for creating functional components.
+
+In this guide, we're going to update information about a user by using the `Partial` Type and display the different
+versions of the user for each update.
+
+_Note: This example is an extension of the [official TypeScript docs](https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype) section on the `Partial` utility type. We'll use the
+same update function from the docs._
+
+## ▶️ Code Sandbox Example
+
+<div style={{ marginTop: "2rem" }}>
+  <iframe
+    src="https://codesandbox.io/embed/typescript-partial-utility-type-5eo4o?fontsize=14&hidenavigation=1&theme=dark"
+    style={{
+      width: "100%",
+      height: "500px",
+      border: "0",
+      borderRadius: "4px",
+      overflow: "hidden",
+    }}
+    title="typescript-partial-utility-type"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</div>
+
+## 🛠 How It Works
+
+In this example, we create some `UserCard` components to render some information about each version of the user each time
+we update the user with new properties.
+
+In `User.tsx`, we create an interface `User` to define the types of data that a user object can have.
+
+```typescript
+// User.tsx
+
+interface User {
+  firstName: string;
+  lastName: string;
+  age: number;
+  favoriteSongs: string[];
+}
+```
+
+We need a function to update the user given a user object that already exists of Type `User`, and fields to update
+the user of a newly constructed Type `Partial<User>`. This newly constructed Type represents all subsets of the `User` Type.
+This means that we can update the user by modifying 1, 2, 3... or ALL of the properties that make up the `User` Type.
+
+We're also going to export this function so that we can use it in our `App.tsx`.
+
+```typescript
+// User.tsx
+
+export function updateUser(user: User, fieldsToUpdate: Partial<User>) {
+  return { ...user, ...fieldsToUpdate };
+}
+```
+
+Also, even though we have made all properties of the `User` Type required, the new `Partial<User>` Type sets all properties
+to optional for us - allowing us to accept any combination of `User` interface fields to update. Very handy!
+
+The last thing we have for our `User.tsx` file is a `UserCard` component that just handles some rendering for us. We also export
+this component so that we can use it in App.tsx.
+
+_Note: keys of react elements should be done in a better way, but for the sake of this guide we're just using some string
+variables combined with a randomly generated number so that keys are all unique. Works for now._ 😇
+
+```typescript
+// User.tsx
+
+export function UserCard(user: User) {
+  return (
+    <div>
+      <ul>
+        <li>
+          <strong>First</strong> {user.firstName}
+        </li>
+        <li>
+          <strong>Last</strong> {user.lastName}
+        </li>
+        <li>
+          <strong>Age</strong> {user.age}
+        </li>
+        <strong>Favorite Songs</strong>
+        {user.favoriteSongs.map((song) => {
+          return (
+            // don't use keys like this, you would instead want a unique id
+            <li key={song + Math.random()}>
+              <strong>
+                {"#" + (user.favoriteSongs.indexOf(song) + 1).toString()}
+              </strong>{" "}
+              {song}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+```
+
+We also need to make a style sheet to import into App.tsx. This will do.
+
+```css
+/* styles.css */
+
+.App {
+  font-family: sans-serif;
+}
+
+.App h1 {
+  text-align: center;
+}
+
+.user-card ul {
+  list-style: none;
+  display: block;
+}
+
+.user-card div {
+  border-style: solid;
+  margin: 1rem;
+}
+```
+
+Now we can import our style sheet and modules that we've exported from `User.tsx`.
+
+Here is where we're going to create some user objects using our `updateUser` function.
+
+```typescript
+// App.tsx
+
+import "./styles.css";
+import { UserCard, updateUser } from "./User";
+
+const user1 = {
+  firstName: "Vitalik",
+  lastName: "Buterin",
+  age: 27,
+  favoriteSongs: [
+    "Hold On - Moxura",
+    "Pressure - Martin Garrix",
+    "Run It Up - Lil Tjay",
+  ],
+};
+
+const user2 = updateUser(user1, {
+  firstName: "Satoshi",
+  favoriteSongs: ["Happier - Bastille"],
+});
+
+const user3 = updateUser(user2, { lastName: "Nakamoto", age: 900 });
+
+const listOfUsers = [user1, user2, user3];
+```
+
+You can see that `user2` takes `user1` as it's first argument and the second argument is a new subset
+of the `User` Type with only the `firstName` and `favoriteSongs` properties.
+
+We do the same thing for `user3` but passing in `user2` as the first argument. This will return us a new user
+with the current fields in `user2` and the new updated fields.
+
+Lastly, we export the App and just map out the list of users into the `UserCard` component. ✅
+
+```typescript
+// App.tsx
+
+export default function App() {
+  return (
+    <div className="App">
+      <h1>*Partial* Utility Type 🛠</h1>
+      {listOfUsers &&
+        listOfUsers.map((user) => {
+          return (
+            <div className="user-card" key={listOfUsers.indexOf(user)}>
+              <h3>Version: {listOfUsers.indexOf(user) + 1}</h3>
+              <UserCard
+                firstName={user.firstName}
+                lastName={user.lastName}
+                age={user.age}
+                favoriteSongs={user.favoriteSongs}
+              ></UserCard>
+            </div>
+          );
+        })}
+    </div>
+  );
+}
+```
+
+## 🧠 Quiz Question
+
+> The new type constructed by `Partial<Type>` sets all properties of `Type` to:
+
+<div>
+  <QuizGenerator
+    answerChoices={["Required", "Null or Undefined", "Partial", "Optional"]}
+    correctAnswerIndex={3}
+  ></QuizGenerator>
+</div>

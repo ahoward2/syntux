@@ -156,7 +156,7 @@ export default function Index({
             code[class*="language-"],
             pre[class*="language-"] {
               color: #f8f8f2;
-              background: #2e3440;
+              background: rgb(0, 1, 37);
               font-family: "Fira Code", Consolas, Monaco, "Andale Mono",
                 "Ubuntu Mono", monospace;
               text-align: left;
@@ -182,9 +182,17 @@ export default function Index({
               border-radius: 0.3em;
             }
 
+            code[class*="language-typescript"] {
+              color: orange;
+            }
+
+            code[class*="language-css"] {
+              color: orange;
+            }
+
             :not(pre) > code[class*="language-"],
             pre[class*="language-"] {
-              background: #2e3440;
+              background: rgb(0, 1, 37);
             }
 
             /* Inline code */
@@ -202,11 +210,11 @@ export default function Index({
             }
 
             .token.punctuation {
-              color: #81a1c1;
+              color: white;
             }
 
             .namespace {
-              opacity: 0.7;
+              opacity: 0.2;
             }
 
             .token.property,
@@ -214,15 +222,16 @@ export default function Index({
             .token.constant,
             .token.symbol,
             .token.deleted {
-              color: #81a1c1;
+              color: lightgrey;
             }
 
             .token.number {
-              color: #b48ead;
+              color: orange;
             }
 
-            .token.boolean {
-              color: #81a1c1;
+            .token.boolean,
+            .token.unit {
+              color: orange;
             }
 
             .token.selector,
@@ -231,7 +240,7 @@ export default function Index({
             .token.char,
             .token.builtin,
             .token.inserted {
-              color: #a3be8c;
+              color: aqua;
             }
 
             .token.operator,
@@ -243,20 +252,27 @@ export default function Index({
               color: #81a1c1;
             }
 
+            .token.maybe-class-name {
+              color: white;
+            }
+
+            .token.property-access {
+              color: orange;
+            }
+
             .token.atrule,
             .token.attr-value,
             .token.function,
             .token.class-name {
-              color: #88c0d0;
+              color: yellow;
             }
-
             .token.keyword {
-              color: #81a1c1;
+              color: rgb(255, 0, 255);
             }
 
             .token.regex,
             .token.important {
-              color: #ebcb8b;
+              color: red;
             }
 
             .token.important,
