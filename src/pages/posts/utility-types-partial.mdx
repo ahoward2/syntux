@@ -11,6 +11,7 @@ tags:
 ---
 
 import QuizGenerator from "../../components/QuizGenerator/QuizGenerator";
+import Callout from "../../components/Callout/Callout";
 
 ## 📝 Table Of Contents
 
@@ -21,7 +22,10 @@ It returns a type that represents all subsets of the given type.
 This creates a really flexible way of making a new copy of an updated object such as a user.
 With Partial we can re-use some or all properties from Types that already exist.
 
-🎓 Fun fact: Partial is used in the FunctionComponent interface for the `React.FC` type for creating functional components.
+<Callout
+  content="Fun fact: Partial is used in the FunctionComponent interface for the `React.FC` type for creating functional components."
+  color={"lightgrey"}
+></Callout>
 
 In this guide, we're going to update information about a user by using the `Partial` Type and display the different
 versions of the user for each update.
