@@ -20,7 +20,7 @@ export default function Index() {
           <ArtisticEditor></ArtisticEditor>
         </div> */}
         <div className="learn-button-wrapper">
-          <Button text={"Guides 🚀"} href="/posts"></Button>
+          <Button text={"🔎 browse"} href="/posts"></Button>
         </div>
         <div className="particles-wrapper">
           <Particles width={"300px"} height={"300px"}></Particles>

@@ -33,6 +33,8 @@ export default function PostList({ posts, tags, pagination }: Props) {
         />
       </div>
       <ul className={"categories"}>
+        <h3>Tags</h3>
+        <hr></hr>
         {tags.map((it, i) => (
           <li key={i}>
             <TagLink tag={it} />
@@ -54,6 +56,12 @@ export default function PostList({ posts, tags, pagination }: Props) {
         }
         li {
           list-style: none;
+        }
+        h3 {
+          font-size: 1.5rem;
+        }
+        hr {
+          margin-bottom: 1.5rem;
         }
         .posts {
           display: flex;
