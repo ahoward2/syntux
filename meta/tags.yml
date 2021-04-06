@@ -1,6 +1,8 @@
 tags:
   - slug: article
     name: article
+  - slug: guides
+    name: guides
   - slug: css
     name: css
   - slug: html

@@ -41,12 +41,12 @@ export const PostItem = ({ post }: PostItemProps) => {
           }
           h2 {
             margin: 0;
-            font-size: 1rem;
+            font-size: 1.5rem;
             text-align: left;
             color: white;
           }
           p {
-            font-size: 0.75rem;
+            font-size: 1rem;
             color: white;
           }
           .post-item-lower {

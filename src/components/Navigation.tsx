@@ -11,19 +11,41 @@ export default function Navigation() {
       <Burger active={active} onClick={() => setActive(!active)} />
       <div className={"container " + (active ? "active" : "")}>
         <ul>
+          <h3 className={"header"}>Navigate</h3>
+          <hr></hr>
           <li>
             <Link href="/">
-              <a className={router.pathname === "/" ? "active" : null}>home</a>
+              <a className={router.pathname === "/" ? "active" : null}>
+                🏠 home
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/posts">
+              <a className={router.pathname === "/posts" ? "active" : null}>
+                🔎 browse
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/posts/tags/guides">
               <a
                 className={
-                  router.pathname.startsWith("/posts") ? "active" : null
+                  router.pathname === "/posts/tags/guides" ? "active" : null
                 }
               >
-                articles
+                📖 guides
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/posts/tags/article">
+              <a
+                className={
+                  router.pathname === "/posts/tags/article" ? "active" : null
+                }
+              >
+                📝 articles
               </a>
             </Link>
           </li>
@@ -32,6 +54,7 @@ export default function Navigation() {
           {`
             .container {
               width: 0;
+              overflow: hidden;
             }
             ul {
               opacity: 0;
@@ -46,7 +69,6 @@ export default function Navigation() {
               background-color: #010f34;
               display: flex;
               flex-direction: column;
-              justify-content: center;
               z-index: 3;
               transform: translateY(100%);
               transition: opacity 200ms;
@@ -60,11 +82,21 @@ export default function Navigation() {
               font-size: 2rem;
               padding: 0 1.5rem 0 0;
             }
+            h3 {
+              font-size: 1.5rem;
+              padding: 0 1.5rem 0 0;
+              color: white;
+            }
             li:last-child {
               margin-bottom: 0;
             }
             .active {
               color: #0ce8da;
+            }
+            hr {
+              margin-bottom: 1.5rem;
+              background: white;
+              width: 100%;
             }
 
             @media (min-width: 769px) {
@@ -78,6 +110,7 @@ export default function Navigation() {
                 top: auto;
                 display: block;
                 transform: translateY(0);
+                padding-left: 2rem;
               }
               li {
                 font-size: 1rem;
