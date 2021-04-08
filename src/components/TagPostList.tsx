@@ -15,9 +15,9 @@ type Props = {
 export default function TagPostList({ posts, tag, pagination }: Props) {
   return (
     <div className={"container"}>
-      <h1>
+      <h3 className={"title"}>
         All posts / <span>{tag.name}</span>
-      </h1>
+      </h3>
       <ul>
         {posts.map((it, i) => (
           <li key={i}>
@@ -46,6 +46,19 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
             display: flex;
             flex-direction: column;
           }
+          .title {
+            position: fixed;
+            top: 0;
+            left: auto;
+            right: 1.5rem;
+          }
+          h3 {
+            width: 75%;
+            font-size: 1.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
           h1 {
             margin: 0 0 2rem;
             padding: 0;
@@ -70,6 +83,13 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
           @media (min-width: 769px) {
             h1 {
               font-size: 2rem;
+            }
+            h3 {
+              width: 15%;
+              font-size: 1rem;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
         `}

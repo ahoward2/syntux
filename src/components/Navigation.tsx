@@ -16,14 +16,14 @@ export default function Navigation() {
           <li>
             <Link href="/">
               <a className={router.pathname === "/" ? "active" : null}>
-                🏠 home
+                🏠 Home
               </a>
             </Link>
           </li>
           <li>
             <Link href="/posts">
               <a className={router.pathname === "/posts" ? "active" : null}>
-                🔎 browse
+                🔎 Browse
               </a>
             </Link>
           </li>
@@ -34,7 +34,7 @@ export default function Navigation() {
                   router.pathname === "/posts/tags/guides" ? "active" : null
                 }
               >
-                📖 guides
+                📖 Guides
               </a>
             </Link>
           </li>
@@ -45,7 +45,7 @@ export default function Navigation() {
                   router.pathname === "/posts/tags/article" ? "active" : null
                 }
               >
-                📝 articles
+                📝 Articles
               </a>
             </Link>
           </li>
@@ -89,9 +89,6 @@ export default function Navigation() {
             }
             li:last-child {
               margin-bottom: 0;
-            }
-            .active {
-              color: #0ce8da;
             }
             hr {
               margin-bottom: 1.5rem;

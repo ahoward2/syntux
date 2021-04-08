@@ -2,10 +2,11 @@ import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import ArtisticEditor from "../components/ArtisticEditor";
 import PlanetOrb from "../components/planetOrb";
 import Button from "../components/Button";
 import Particles from "react-particles-js";
+import Callout from "../components/Callout/Callout";
+import Link from "next/link";
 
 export default function Index() {
   return (
@@ -15,12 +16,23 @@ export default function Index() {
       <TwitterCardMeta url={"/"} />
 
       <div className="container">
-        <h1>Welcome To IcyCoder</h1>
+        <h3>🏠 Home</h3>
         {/* <div className="graphic-wrapper">
           <ArtisticEditor></ArtisticEditor>
         </div> */}
+        <div className={"callout-wrapper"}>
+          <Link href={"/posts/tags/typescript"}>
+            <a>
+              <Callout
+                content="New TypeScript Guides ↗"
+                color={"lightgrey"}
+              ></Callout>
+            </a>
+          </Link>
+        </div>
+        <p></p>
         <div className="learn-button-wrapper">
-          <Button text={"🔎 browse"} href="/posts"></Button>
+          <Button text={"🔎 Browse"} href="/posts"></Button>
         </div>
         <div className="particles-wrapper">
           <Particles width={"300px"} height={"300px"}></Particles>
@@ -35,6 +47,9 @@ export default function Index() {
         .graphic-wrapper {
           display: flex;
         }
+        .callout-wrapper {
+          text-align: center;
+        }
         .gap {
           width: 0.5em;
         }
@@ -46,16 +61,16 @@ export default function Index() {
             transform: rotate(359deg);
           }
         }
-        h1 {
+
+        h3 {
           position: fixed;
-          top: 1.25rem;
+          top: 1.5rem;
           left: auto;
-          right: 1.25rem;
+          right: 1.5rem;
           text-align: center;
           font-size: 1.5rem;
           margin: 0;
           color: white;
-          padding: 0.1rem 0.2rem;
         }
         .fancy {
           color: #15847d;

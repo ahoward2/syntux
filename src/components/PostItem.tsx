@@ -17,8 +17,14 @@ export const PostItem = ({ post }: PostItemProps) => {
             <FeatureImage url={post.feature}></FeatureImage>
             <div className="post-item-lower">
               <h2>{post.title}</h2>
+              <div className="date-wrapper">
+                <Date
+                  date={parseISO(post.date)}
+                  color={"lightgrey"}
+                  emoji={true}
+                />
+              </div>
               <p>{post.excerpt}</p>
-              <Date date={parseISO(post.date)} color={"white"} emoji={true} />
             </div>
           </a>
         </Link>
@@ -35,27 +41,37 @@ export const PostItem = ({ post }: PostItemProps) => {
           a {
             display: inline-block;
           }
-          .post-item-wrapper:hover {
-            border-color: white;
-            transform: scale(1.1);
+          .post-item-lower {
+            display: flex;
+            flex-direction: column;
+            padding: 0rem 0.5rem 0rem 0.5rem;
           }
           h2 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+
             text-align: left;
             color: white;
+            flex: 1;
           }
           p {
-            font-size: 1rem;
+            font-size: 0.75rem;
+            line-height: 1rem;
             color: white;
+            flex: 1;
           }
-          .post-item-lower {
-            padding: 1rem 0.5rem 0.5rem 0.5rem;
+          .date-wrapper {
+            flex: 1;
+            margin-top: 0.5rem;
           }
 
           @media (min-width: 769px) {
             .post-item-wrapper {
               margin-top: 0;
+            }
+            .post-item-wrapper:hover {
+              border-color: white;
             }
           }
         `}
