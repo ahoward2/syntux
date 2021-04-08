@@ -1,0 +1,129 @@
+---
+slug: utility-types-readonly
+title: TypeScript Readonly Utility Type
+date: 2021-04-06
+feature: https://res.cloudinary.com/dfgixacwt/image/upload/v1617588617/articles/required-type/required-type_zulhso.jpg
+author: ice
+excerpt: Short guide to TypeScript's `Required` utility type. 🛠
+tags:
+  - guides
+  - typescript
+---
+
+import QuizGenerator from "../../components/QuizGenerator/QuizGenerator";
+import Callout from "../../components/Callout/Callout";
+
+## 📝 Table Of Contents
+
+## ☕️ Summary
+
+The `Readonly<Type>` utility type constructs a type with all properties of `Type` set to `readonly` where the properties of the newly constructed type cannot be
+reassigned.
+
+Continuing on with our guide through utility types, we're going to create another function called `freezeUser` that will freeze
+an object with the JavaScript `Object.freeze()` method and return a user object with `readonly` properties.
+
+<Callout
+  content={
+    "This will also demonstrate the difference between compile-time immutability and run-time immutability."
+  }
+  color={"lightgrey"}
+></Callout>
+
+## ▶️ Code Sandbox Example
+
+<div style={{ marginTop: "2rem" }}>
+  <iframe
+    src="https://codesandbox.io/embed/typescript-readonly-utility-type-ih1d5?fontsize=14&hidenavigation=1&theme=dark"
+    style={{
+      width: "100%",
+      height: "500px",
+      border: "0",
+      borderRadius: "4px",
+      overflow: "hidden",
+    }}
+    title="typescript-readonly-utility-type"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</div>
+
+## 🛠 How It Works
+
+So, let's take a look at the `freezeUser` function we've created.
+
+```typescript
+// User.tsx
+
+export function freezeUser(user: User): Readonly<User> {
+  Object.freeze(user);
+  return user;
+}
+```
+
+We take in a parameter `user` of type `User` and the return type of the function is `Readonly<User>` which is a newly constructed `User` with
+all properties set to `readonly`. This means that it is `readonly` to the **Typescript compiler**, so the compiler will warn us if we attempt
+to reassign any of the properties.
+
+Also, in the `freezeUser` function, we use Object.freeze()
+and return the frozen object which also will not update
+the age of user4 at runtime.
+
+```typescript
+// App.tsx
+
+let user4 = freezeUser(user3);
+
+user4.age = 55;
+// Cannot assign to 'lastName' because it is a read-only property.
+```
+
+But then what if we reassign user4 to a new object that is not frozen, yet still readonly?
+
+Let's re-use the `updateUser` function from the [first guide for using the Partial utility type](https://www.icycoder.com/posts/utility-types-partial) ↗ which
+will reassign user4 to an object that is no longer frozen.
+
+```typescript
+// App.tsx
+
+// Now we're reassigning user4 to a new object that is returned
+// from the updateUser() function which means it's no longer frozen.
+user4 = updateUser(user4, { firstName: "Alien" });
+
+user4.lastName = "Musk";
+// Cannot assign to 'age' because it is a read-only property.
+```
+
+We still get the compiler warning us that user4.lastname is read-only but this still does not stop that value of those properties from changing at run-time though.
+The UI will still update the value at runtime.
+
+## 🧠 Quiz Question
+
+Given an interface `Block` with 2 properties `hash` and `message`:
+
+```typescript
+
+interface Block = {
+  hash: string;
+  message?: string;
+};
+```
+
+If we wanted to define a new type `StrictBlock` with `Readonly<Block>` like this:
+
+```typescript
+type StrictBlock = Readonly<Block>;
+```
+
+Which of the following is true of `StrictBlock`?
+
+<div>
+  <QuizGenerator
+    answerChoices={[
+      "The value of any property of StrictBlock can be changed at runtime",
+      "StrictBlock is frozen so can't be changed at runtime",
+      "All properties of StrictBlock are required",
+    ]}
+    correctAnswerIndex={0}
+  ></QuizGenerator>
+</div>

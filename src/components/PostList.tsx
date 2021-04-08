@@ -15,6 +15,7 @@ type Props = {
 export default function PostList({ posts, tags, pagination }: Props) {
   return (
     <div className={"container"}>
+      <h3 className="title">🔎 Browse</h3>
       <div className={"posts"}>
         <ul className={"post-list"}>
           {posts.map((it, i) => (
@@ -60,6 +61,12 @@ export default function PostList({ posts, tags, pagination }: Props) {
         h3 {
           font-size: 1.5rem;
         }
+        .title {
+          position: fixed;
+          top: 0;
+          left: auto;
+          right: 1.5rem;
+        }
         hr {
           margin-bottom: 1.5rem;
         }
@@ -76,14 +83,6 @@ export default function PostList({ posts, tags, pagination }: Props) {
           grid-template-rows: auto;
           gap: 1rem;
         }
-        @media (min-width: 769px) {
-          .post-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr;
-            gap: 2.5rem;
-          }
-        }
         .categories {
           display: none;
           margin-left: 2rem;
@@ -91,8 +90,13 @@ export default function PostList({ posts, tags, pagination }: Props) {
         .categories li {
           margin-bottom: 0.75em;
         }
-
         @media (min-width: 769px) {
+          .post-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 2.5rem;
+          }
           .categories {
             display: block;
           }
