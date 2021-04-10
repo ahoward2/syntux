@@ -12,7 +12,6 @@ export default function Navigation() {
       <div className={"container " + (active ? "active" : "")}>
         <ul>
           <h3 className={"header"}>Navigate</h3>
-          <hr></hr>
           <li>
             <Link href="/">
               <a className={router.pathname === "/" ? "active" : null}>
@@ -90,11 +89,6 @@ export default function Navigation() {
             li:last-child {
               margin-bottom: 0;
             }
-            hr {
-              margin-bottom: 1.5rem;
-              background: white;
-              width: 100%;
-            }
 
             @media (min-width: 769px) {
               .container {
@@ -108,6 +102,7 @@ export default function Navigation() {
                 display: block;
                 transform: translateY(0);
                 padding-left: 2rem;
+                border-top: 1px solid lightgrey;
               }
               li {
                 font-size: 1rem;

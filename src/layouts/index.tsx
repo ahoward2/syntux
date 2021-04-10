@@ -107,7 +107,7 @@ export default function Index({
               max-width: 50rem;
               width: 100%;
               margin: 0 auto;
-              padding: 0 1.5rem;
+              padding: 1.5rem 1.5rem 1.5rem 1.5rem;
               box-sizing: border-box;
             }
             .metadata div {

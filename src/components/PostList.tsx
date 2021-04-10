@@ -35,7 +35,6 @@ export default function PostList({ posts, tags, pagination }: Props) {
       </div>
       <ul className={"categories"}>
         <h3>Tags</h3>
-        <hr></hr>
         {tags.map((it, i) => (
           <li key={i}>
             <TagLink tag={it} />
@@ -45,7 +44,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
       <style jsx>{`
         .container {
           display: flex;
-          margin: 0 auto;
+          margin: 1.5rem auto auto auto;
           max-width: 1200px;
           width: 100%;
           height: 100%;
@@ -74,14 +73,12 @@ export default function PostList({ posts, tags, pagination }: Props) {
           display: flex;
           flex-direction: column;
         }
-        .posts li {
-          margin-bottom: 1.5rem;
-        }
+
         .post-list {
           display: grid;
           grid-template-columns: auto;
           grid-template-rows: auto;
-          gap: 1rem;
+          gap: 2rem;
         }
         .categories {
           display: none;
@@ -93,12 +90,20 @@ export default function PostList({ posts, tags, pagination }: Props) {
         @media (min-width: 769px) {
           .post-list {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr;
-            gap: 2.5rem;
+            gap: 1.75rem;
           }
           .categories {
             display: block;
+          }
+        }
+        @media (min-width: 1460px) {
+          .post-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 2rem;
           }
         }
       `}</style>

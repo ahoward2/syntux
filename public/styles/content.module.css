@@ -19,7 +19,6 @@
 
 .content a {
   color: #0ce8da;
-  text-decoration: underline;
 }
 
 .content h1 {
@@ -144,6 +143,11 @@
   .content h4,
   .content h5 {
     position: relative;
+    top: 1.25rem;
+  }
+  .sticky-header {
+    position: sticky;
+    position: -webkit-sticky;
   }
 
   .content h2::before {
