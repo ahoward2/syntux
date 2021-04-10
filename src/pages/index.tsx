@@ -20,6 +20,7 @@ export default function Index() {
         {/* <div className="graphic-wrapper">
           <ArtisticEditor></ArtisticEditor>
         </div> */}
+        <h1>A Knowledge Base For Web Developers 🧠</h1>
         <div className={"callout-wrapper"}>
           <Link href={"/posts/tags/typescript"}>
             <a>
@@ -101,7 +102,7 @@ export default function Index() {
             margin: 0rem auto 0rem auto;
           }
           h1 {
-            font-size: 4rem;
+            font-size: 2.75rem;
             position: relative;
             top: 0;
             right: 0;

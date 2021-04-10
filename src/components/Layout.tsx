@@ -8,11 +8,10 @@ type Props = {
   children: React.ReactNode;
 };
 export default function Layout({ children }: Props) {
-  
-  useEffect(()=> {
+  useEffect(() => {
     // discordHook();
     logPageView();
-  }, [])
+  }, []);
 
   return (
     <div className="root">
@@ -23,6 +22,7 @@ export default function Layout({ children }: Props) {
         <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="theme-color" content="#fff" />
       </Head>
+      <header></header>
       <nav>
         <Navigation />
       </nav>
@@ -39,6 +39,18 @@ export default function Layout({ children }: Props) {
             display: flex;
             min-height: 100%;
           }
+          header {
+            position: fixed;
+            top: 0;
+            left: 0:
+            width: 100%;
+            width: 100vw;
+            height: 4rem;
+            background: #010f34;
+            display: flex;
+            border-bottom: 1px solid lightgrey;
+          }
+
           @media (min-width: 769px) {
             .root {
               display: flex;

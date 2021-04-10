@@ -39,7 +39,7 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
       <style jsx>
         {`
           .container {
-            margin: 0 auto;
+            margin: 1.5rem auto auto auto;
             max-width: 769px;
             width: 100%;
             padding: 0 1.5rem;
@@ -85,11 +85,10 @@ export default function TagPostList({ posts, tag, pagination }: Props) {
               font-size: 2rem;
             }
             h3 {
-              width: 15%;
-              font-size: 1rem;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
+              margin-left: auto;
+            }
+            .title {
+              right: auto;
             }
           }
         `}
