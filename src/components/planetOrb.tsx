@@ -1,11 +1,15 @@
+import Particles from "react-particles-js";
+
 const planetOrb = () => {
   return (
     <>
-      <div className="planet"></div>
+      <div className="planet">
+        <Particles width={"300px"} height={"300px"}></Particles>
+      </div>
       <style jsx>
         {`
           .planet {
-            position: fixed;
+            position: relative;
             width: 300px;
             height: 300px;
             border-radius: 50%;

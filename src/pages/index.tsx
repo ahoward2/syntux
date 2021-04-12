@@ -4,7 +4,6 @@ import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import PlanetOrb from "../components/planetOrb";
 import Button from "../components/Button";
-import Particles from "react-particles-js";
 import Callout from "../components/Callout/Callout";
 import Link from "next/link";
 
@@ -17,9 +16,6 @@ export default function Index() {
 
       <div className="container">
         <h3>🏠 Home</h3>
-        {/* <div className="graphic-wrapper">
-          <ArtisticEditor></ArtisticEditor>
-        </div> */}
         <h1>A Knowledge Base For Web Developers 🧠</h1>
         <div className={"callout-wrapper"}>
           <Link href={"/posts/tags/typescript"}>
@@ -36,7 +32,6 @@ export default function Index() {
           <Button text={"🔎 Browse"} href="/posts"></Button>
         </div>
         <div className="particles-wrapper">
-          <Particles width={"300px"} height={"300px"}></Particles>
           <PlanetOrb></PlanetOrb>
         </div>
       </div>
@@ -54,15 +49,6 @@ export default function Index() {
         .gap {
           width: 0.5em;
         }
-        @keyframes rotation {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(359deg);
-          }
-        }
-
         h3 {
           position: fixed;
           top: 1.5rem;
@@ -73,16 +59,6 @@ export default function Index() {
           margin: 0;
           color: white;
         }
-        .fancy {
-          color: #15847d;
-        }
-        .handle {
-          display: inline-block;
-          margin-top: 0.275em;
-          color: #9b9b9b;
-          letter-spacing: 0.05em;
-        }
-
         .learn-button-wrapper {
           margin: 2rem 0 0 0;
           display: flex;
