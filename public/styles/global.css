@@ -17,10 +17,8 @@ a {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
-a:active,
 a:hover {
-  color: #0ce8da;
+  color: rgb(255, 255, 255, 0.5);
 }
 
 .youtube-container {

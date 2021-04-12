@@ -13,11 +13,13 @@ export default function TagButton({ text, href }: Props) {
       <style jsx>{`
         a {
           border-radius: 3px;
-          background-color: rgba(41, 163, 238, 0.2);
-          color: #0ce8da;
+          border-color: white;
+          border-style: solid;
+          border-width: 1px;
+          color: white;
           transition: background-color 0.3s ease;
           padding: 0.5em 1em;
-          font-size: 2rem;
+          font-size: 1.5rem;
         }
         a:active,
         a:hover {

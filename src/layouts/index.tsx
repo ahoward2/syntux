@@ -9,13 +9,18 @@ import BasicMeta from "../components/meta/BasicMeta";
 import JsonLdMeta from "../components/meta/JsonLdMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import PageNav from "../components/PageNav";
 import { SocialList } from "../components/SocialList";
 import TagButton from "../components/TagButton";
 import { getAuthor } from "../lib/authors";
 import { getTag } from "../lib/tags";
 import FeatureImage from "../components/FeatureImage";
 import Donate from "../components/Donate";
+import {
+  TwitterShareButton,
+  RedditShareButton,
+  FacebookShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 type Props = {
   title: string;
@@ -66,16 +71,49 @@ export default function Index({
           description={description}
         />
         <div className={"container"}>
+          <div className={"share-wrapper"}>
+            <ul className={"share-list"}>
+              <li className={"share-button-label"}>Share 👉</li>
+              <li className={"share-button"}>
+                <TwitterShareButton
+                  url={`https://www.icycoder.com/posts/${slug}`}
+                >
+                  Twitter
+                </TwitterShareButton>
+              </li>
+              <li className={"share-button"}>
+                <RedditShareButton
+                  url={`https://www.icycoder.com/posts/${slug}`}
+                >
+                  Reddit
+                </RedditShareButton>
+              </li>
+              <li className={"share-button"}>
+                <FacebookShareButton
+                  url={`https://www.icycoder.com/posts/${slug}`}
+                >
+                  Facebook
+                </FacebookShareButton>
+              </li>
+              <li className={"share-button"}>
+                <WhatsappShareButton
+                  url={`https://www.icycoder.com/posts/${slug}`}
+                >
+                  Whatsapp
+                </WhatsappShareButton>
+              </li>
+            </ul>
+          </div>
           <article>
             <header>
               <h1>{title}</h1>
               <div className={"metadata"}>
                 <FeatureImage url={feature}></FeatureImage>
                 <div className={"date-wrapper"}>
-                  <Date date={date} color={"#010f34"} />
+                  <Date date={date} color={"lightgrey"} />
                 </div>
                 <div className={"author-wrapper"}>
-                  <Author author={getAuthor(author)} color={"#010f34"} />
+                  <Author author={getAuthor(author)} color={"lightgrey"} />
                 </div>
               </div>
             </header>
@@ -114,8 +152,40 @@ export default function Index({
               display: inline-block;
               margin-right: 0.5rem;
               padding: 0.5rem;
-              background-color: rgba(255, 255, 255, 1);
-              border-radius: 3px;
+            }
+            .share-wrapper {
+              position: fixed;
+              top: 0.32rem;
+              left: auto;
+              right: 1.5rem;
+              width: 70%;
+              display: flex;
+              margin: 0;
+            }
+            .share-list {
+              list-style-type: none;
+              padding-inline-start: 0;
+              white-space: nowrap;
+              overflow: scroll;
+              -ms-overflow-style: none; /* IE and Edge */
+              scrollbar-width: none; /* IE and Edge */
+            }
+            .share-list::-webkit-scrollbar {
+              display: none;
+            }
+            .share-button {
+              border-style: solid;
+              border-width: 1px;
+              padding: 0.25rem;
+              display: inline-block;
+              margin-right: 0.5rem;
+            }
+            .share-button-label {
+              padding: 0.25rem;
+              display: inline-block;
+              margin-right: 0.5rem;
+              color: white;
+              background: rgb(85, 18, 255);
             }
             article {
               flex: 1 0 auto;
@@ -147,6 +217,9 @@ export default function Index({
               .container {
                 display: flex;
                 flex-direction: column;
+              }
+              .share-wrapper {
+                width: 25%;
               }
             }
           `}
