@@ -32,7 +32,7 @@ export default function Page({ posts, tags, pagination, page }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const page = parseInt(params.page as string);
+  const page = parseInt(params ? (params.page as string) : "");
   const posts = listPostContent(page, config.posts_per_page);
   const tags = listTags();
   const pagination = {

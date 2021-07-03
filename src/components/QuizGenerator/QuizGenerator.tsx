@@ -11,7 +11,7 @@ const QuizGenerator = ({
   correctAnswerIndex,
 }: QuizGeneratorProps) => {
   const [isAnswered, setIsAnswered] = useState<boolean>(false);
-  const [userAnswer, setUserAnswer] = useState<number>(null);
+  const [userAnswer, setUserAnswer] = useState<number>(0);
 
   return (
     <>

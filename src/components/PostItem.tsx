@@ -11,32 +11,42 @@ export interface PostItemProps {
 export const PostItem = ({ post }: PostItemProps) => {
   return (
     <>
-      <div className="post-item-wrapper">
-        <Link href={"/posts/" + post.slug}>
-          <a>
-            <FeatureImage url={post.feature}></FeatureImage>
-            <div className="post-item-lower">
-              <h2>{post.title}</h2>
-              <div className="date-wrapper">
-                <Date
-                  date={parseISO(post.date)}
-                  color={"lightgrey"}
-                  emoji={true}
-                />
+      {post ? (
+        <div className="post-item-wrapper">
+          <Link href={"/posts/" + post.slug}>
+            <a>
+              {post.feature ? (
+                <FeatureImage url={post.feature}></FeatureImage>
+              ) : (
+                <p>loading...</p>
+              )}
+              <div className="post-item-lower">
+                <h2>{post.title}</h2>
+                <div className="date-wrapper">
+                  <Date
+                    date={parseISO(post.date)}
+                    color={"grey"}
+                    emoji={true}
+                  />
+                </div>
+                <p>{post.excerpt}</p>
               </div>
-              <p>{post.excerpt}</p>
-            </div>
-          </a>
-        </Link>
-      </div>
+            </a>
+          </Link>
+        </div>
+      ) : (
+        <p>loading...</p>
+      )}
       <style jsx>
         {`
           .post-item-wrapper {
             transition: 0.3s;
             border: solid;
+            border-width: 1px;
             border-color: rgba(255, 255, 255, 0.5);
             margin-top: 0.5rem;
             height: 100%;
+            background: #fff;
           }
           a {
             display: inline-block;
@@ -44,7 +54,7 @@ export const PostItem = ({ post }: PostItemProps) => {
           .post-item-lower {
             display: flex;
             flex-direction: column;
-            padding: 0rem 0.5rem 0rem 0.5rem;
+            padding: 0.5rem 0.5rem 0rem 0.5rem;
           }
           h2 {
             margin: 0;
@@ -52,20 +62,25 @@ export const PostItem = ({ post }: PostItemProps) => {
             line-height: 1.5rem;
 
             text-align: left;
-            color: white;
+            color: black;
             flex: 1;
           }
           p {
             font-size: 0.75rem;
             line-height: 1rem;
-            color: white;
+            color: black;
             flex: 1;
           }
           .date-wrapper {
             flex: 1;
             margin-top: 0.5rem;
           }
-
+          path {
+            color: white;
+          }
+          .hourglass-wrapper {
+            color: white;
+          }
           @media (min-width: 769px) {
             .post-item-wrapper {
               margin-top: 0;

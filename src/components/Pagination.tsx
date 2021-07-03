@@ -15,13 +15,15 @@ export default function Pagination({ current, pages, link }: Props) {
     <ul>
       {pagination.map((it, i) => (
         <li key={i}>
-          {it.excerpt ? (
-            "..."
-          ) : (
-            <Link href={link.href(it.page)} as={link.as(it.page)}>
-              <a className={it.page === current ? "active" : null}>{it.page}</a>
-            </Link>
-          )}
+          {it.excerpt
+            ? "..."
+            : it.page && (
+                <Link href={link.href(it.page)} as={link.as(it.page)}>
+                  <a className={it.page === current ? "active" : undefined}>
+                    {it.page}
+                  </a>
+                </Link>
+              )}
         </li>
       ))}
       <style jsx>{`

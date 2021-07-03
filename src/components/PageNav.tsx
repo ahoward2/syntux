@@ -14,14 +14,16 @@ const PageNav = () => {
           <li></li>
           <li>
             <Link href="/">
-              <a className={router.pathname === "/" ? "active" : null}>home</a>
+              <a className={router.pathname === "/" ? "active" : undefined}>
+                home
+              </a>
             </Link>
           </li>
           <li>
             <Link href="/posts">
               <a
                 className={
-                  router.pathname.startsWith("/posts") ? "active" : null
+                  router.pathname.startsWith("/posts") ? "active" : undefined
                 }
               >
                 articles

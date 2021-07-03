@@ -42,7 +42,7 @@ export default function Index({
 }: Props) {
   const keywords = tags.map((it) => getTag(it).name);
   const authorName = getAuthor(author).name;
-  return ({ children: content }) => {
+  return ({ children: content }: any) => {
     return (
       <Layout>
         <BasicMeta
