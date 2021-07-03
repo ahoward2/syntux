@@ -14,14 +14,16 @@ export default function Navigation() {
           <h3 className={"header"}>Navigate</h3>
           <li>
             <Link href="/">
-              <a className={router.pathname === "/" ? "active" : null}>
+              <a className={router.pathname === "/" ? "active" : undefined}>
                 🏠 Home
               </a>
             </Link>
           </li>
           <li>
             <Link href="/posts">
-              <a className={router.pathname === "/posts" ? "active" : null}>
+              <a
+                className={router.pathname === "/posts" ? "active" : undefined}
+              >
                 🔎 Browse
               </a>
             </Link>
@@ -30,7 +32,9 @@ export default function Navigation() {
             <Link href="/posts/tags/guides">
               <a
                 className={
-                  router.pathname === "/posts/tags/guides" ? "active" : null
+                  router.pathname === "/posts/tags/guides"
+                    ? "active"
+                    : undefined
                 }
               >
                 📖 Guides
@@ -41,7 +45,9 @@ export default function Navigation() {
             <Link href="/posts/tags/article">
               <a
                 className={
-                  router.pathname === "/posts/tags/article" ? "active" : null
+                  router.pathname === "/posts/tags/article"
+                    ? "active"
+                    : undefined
                 }
               >
                 📝 Articles

@@ -14,8 +14,6 @@ tags:
 
 # ☕️ Summary
 
----
-
 Flexbox is a _really_ nice CSS module that provides a ton of...flexibility. 😁
 
 In this small guide, we're going to build a simple design with HTML, CSS, and JavaScript. We're going to call this design - **Slide Revealer**. If you want to skip to the **full code**, see the CodePen at the bottom of the page. 👇
@@ -24,13 +22,9 @@ In this small guide, we're going to build a simple design with HTML, CSS, and Ja
 
 # 🔬 How It Works
 
----
-
 We use HTML to create the layout of elements, CSS to style those elements, and JavaScript to manipulate our HTML and CSS.
 
 ## ⚙️ HTML Code
-
----
 
 First, we need to create a button that we can use to trigger events when the user clicks. Let's go ahead and add that to our HTML file.
 
@@ -60,8 +54,6 @@ But that's all of the HTML we need, now onto the CSS styling! 🎨
 
 ## ⚙️ CSS Code
 
----
-
 First, we need to style the container that holds our `<button>` so that it's centered, and also _above_ the other elements on our page. It's cliche that centering anything in CSS is super tricky but once you do it a couple of times it's pretty easy.
 
 Since we added `class="open-button"` to the wrapper around our button, we can define a style for that class which will position our button.
@@ -82,8 +74,6 @@ Notice the `z-index: 2;` is how we can place the button on a higher "layer" than
 ```
 
 ### 💪 Flex-box
-
----
 
 Now let's dive into the actual **flex-box** functionality.
 
@@ -145,8 +135,6 @@ That's all for our CSS file! But our button doesn't actually do anything for us 
 
 # ⚙️ JavaScript Code
 
----
-
 So now we need to actually do something to our elements whenever a user clicks on a button. All we need to do is create and `onClick` function!
 
 ```jsx
@@ -178,10 +166,8 @@ Happy Coding. 👋
 
 # 💡 Try it out in CodePen!
 
----
-
 import CodePen from "react-codepen-embed";
 
-<div>
+<div style={{ marginTop: "1.5rem" }}>
   <CodePen hash="MWjQwWy" user="ahoward2" height={500} />
 </div>

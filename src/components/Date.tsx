@@ -1,5 +1,4 @@
 import { format, formatISO } from "date-fns";
-
 type Props = {
   date: Date;
   color: string;

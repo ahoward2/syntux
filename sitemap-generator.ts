@@ -10,3 +10,6 @@ sitemap({
   ignoredExtensions: ["js", "map"],
   ignoredPaths: ["[fallback]"],
 });
+
+// will be treated as legacy script unless there is this export ---- KEEP
+export {};
